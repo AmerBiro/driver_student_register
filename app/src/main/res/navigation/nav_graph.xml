@@ -17,6 +17,8 @@
             android:id="@+id/action_splash_Screen_to_home2"
             app:destination="@id/home2" />
     </fragment>
+
+
     <fragment
         android:id="@+id/sign_in"
         android:name="com.example.driverstudentregister.registration.Sign_in"
@@ -26,6 +28,7 @@
             android:id="@+id/action_sign_in_to_home2"
             app:destination="@id/home2" />
     </fragment>
+
     <fragment
         android:id="@+id/home2"
         android:name="com.example.driverstudentregister.home.Home"
@@ -34,10 +37,24 @@
         <action
             android:id="@+id/action_home2_to_create_Student"
             app:destination="@id/create_Student" />
+        <action
+            android:id="@+id/action_home2_to_view_pager_viwer"
+            app:destination="@id/view_pager_viwer" />
     </fragment>
     <fragment
         android:id="@+id/create_Student"
         android:name="com.example.driverstudentregister.home.Create_Student"
         android:label="home_create__student"
         tools:layout="@layout/home_create__student" />
+
+
+    <fragment
+        android:id="@+id/view_pager_viwer"
+        android:name="com.example.driverstudentregister.viewpager.ViewPagerViwer"
+        android:label="registration_sign_in"
+        tools:layout="@layout/view_pager_viwer" >
+
+    </fragment>
+
+
 </navigation>

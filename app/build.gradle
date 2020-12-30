@@ -53,4 +53,8 @@ dependencies {
 
     // material components
     implementation 'com.google.android.material:material:1.2.0-alpha03'
+
+    // Viewpager2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
 }
