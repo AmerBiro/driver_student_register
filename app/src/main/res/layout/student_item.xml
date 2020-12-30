@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="20dp"
     android:paddingRight="40dp"
     android:paddingLeft="40dp"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:gravity="center"
-    >
+    app:layout_constraintTop_toTopOf="@+id/recyclerview"
+    android:background="@drawable/student_item_frame">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/student_item_name"
         style="@style/item"
-        android:layout_marginEnd="50dp"
+        android:textColor="@color/white"
         />
 
     <TextView
@@ -23,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="@string/practise_date"
         style="@style/item"
+        android:textColor="@color/white"
         />
 
 

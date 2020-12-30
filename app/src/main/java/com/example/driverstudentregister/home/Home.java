@@ -38,10 +38,17 @@ public class Home extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        binding.floatingButton.setOnClickListener(new View.OnClickListener() {
+        binding.singeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 controller.navigate(R.id.action_home2_to_view_pager_viwer);
+            }
+        });
+
+        binding.floatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.navigate(R.id.action_home2_to_create_Student);
             }
         });
     }
