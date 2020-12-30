@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splash_Screen">
+
+    <fragment
+        android:id="@+id/splash_Screen"
+        android:name="com.example.driverstudentregister.home.Splash_Screen"
+        android:label="home_splash__screen"
+        tools:layout="@layout/home_splash__screen" >
+        <action
+            android:id="@+id/action_splash_Screen_to_sign_in"
+            app:destination="@id/sign_in" />
+        <action
+            android:id="@+id/action_splash_Screen_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_in"
+        android:name="com.example.driverstudentregister.registration.Sign_in"
+        android:label="registration_sign_in"
+        tools:layout="@layout/registration_sign_in" >
+        <action
+            android:id="@+id/action_sign_in_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.driverstudentregister.home.Home"
+        android:label="home_home"
+        tools:layout="@layout/home_home" >
+        <action
+            android:id="@+id/action_home2_to_create_Student"
+            app:destination="@id/create_Student" />
+    </fragment>
+    <fragment
+        android:id="@+id/create_Student"
+        android:name="com.example.driverstudentregister.home.Create_Student"
+        android:label="home_create__student"
+        tools:layout="@layout/home_create__student" />
+</navigation>

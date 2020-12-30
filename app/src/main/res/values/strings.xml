@@ -2,4 +2,88 @@
     <string name="app_name">Driver student register</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    // Splash Screen
+    <string name="app_name_">Driver student register</string>
+    <string name="status">Checking account info</string>
+
+
+    // Registration
+    <string name="registration_title">Registration</string>
+    <string name="registration_username">Username</string>
+    <string name="registration_password">Password</string>
+    <string name="registration_sign_in">Sign in</string>
+    <string name="registration_forgot_password">Forgot password?</string>
+
+    // Home
+    <string name="home_title">Home</string>
+    <string name="home_student_example">Amer Biro</string>
+
+
+    // Student item
+    <string name="student_item_name">Student name</string>
+
+
+    // Create a new student
+    <string name="student_create">Create a new student</string>
+    <string name="student_name">Name</string>
+    <string name="student_phone">Phone number</string>
+    <string name="student_address">Address</string>
+    <string name="student_cpr">CPR</string>
+    <string name="student_price">Price: 13.500 DKK</string>
+    <string name="student_discount">Discount</string>
+    <string name="student_create_button">Create</string>
+
+
+    // Viewpager Info
+    <string name="info_title">Info</string>
+    <string name="info_name">Name</string>
+    <string name="info_name_example">Amer Biro</string>
+    <string name="info_phone">Phone number</string>
+    <string name="info_phone_example">42492297</string>
+    <string name="info_address">Address</string>
+    <string name="info_address_example">CPH</string>
+    <string name="info_cpr">Cpr</string>
+    <string name="info_cpr_example">1234567890</string>
+
+
+    // Viewpager Payment
+    <string name="payment_title">Payment</string>
+    <string name="payment_package_price">Package price</string>
+    <string name="payment_package_price_example">13.500 DKK</string>
+    <string name="payment_discount">Discount</string>
+    <string name="payment_discount_example">500 DKK</string>
+    <string name="payment_summary">Need to be paid</string>
+    <string name="payment_summary_example">7.500 DKK</string>
+
+
+    // Viewpager Theory
+    <string name="theory_title">Theory</string>
+    <string name="theory_01">Lecture 01</string>
+    <string name="theory_02">Lecture 02</string>
+    <string name="theory_03">Lecture 03</string>
+    <string name="theory_04">Lecture 04</string>
+    <string name="theory_05">Lecture 05</string>
+    <string name="theory_06">Lecture 06</string>
+    <string name="theory_07">Lecture 07</string>
+    <string name="theory_08">Lecture 08</string>
+    <string name="theory_date">xx/xx/xxxx</string>
+
+
+    // Viewpager Practise
+    <string name="practise_title">Practise</string>
+    <string name="practise_01">01- Closed</string>
+    <string name="practise_02">02- Street</string>
+    <string name="practise_03">03- Street</string>
+    <string name="practise_04">04- Street</string>
+    <string name="practise_05">05- Street</string>
+    <string name="practise_06">06- Street</string>
+    <string name="practise_07">07- Street</string>
+    <string name="practise_08">08- Street</string>
+    <string name="practise_09">09- Ice</string>
+    <string name="practise_10">10- Practising</string>
+    <string name="practise_date">xx/xx/xxxx</string>
+
+
 </resources>
