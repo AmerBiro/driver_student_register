@@ -1,5 +1,6 @@
 package com.example.driverstudentregister.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,10 +27,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class Splash_Screen extends Fragment {
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
     NavController controller;
 
-    private @NonNull HomeSplashScreenBinding binding;
+    private @NonNull
+    HomeSplashScreenBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,33 +41,49 @@ public class Splash_Screen extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        controller =  Navigation.findNavController(view);
+        controller = Navigation.findNavController(view);
     }
 
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = HomeSplashScreenBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+        binding.status.setText("Checking account info...");
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        signInAuto();
+    }
 
+
+    public void signInAuto(){
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-            if (user == null){
-                controller.navigate(R.id.action_splash_Screen_to_sign_in);
-            }else {
-                controller.navigate(R.id.action_splash_Screen_to_home2);
-            }
+                if (user == null){
+                    binding.status.setText("No account founded...");
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            controller.navigate(R.id.action_splash_Screen_to_sign_in);
+                        }
+                    },1000);
+                }else{
+                    binding.status.setText("Logged in...");
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            controller.navigate(R.id.action_splash_Screen_to_home2);
+                        }
+                    },1000);
+                }
             }
         },2000);
-
-
     }
+
 }

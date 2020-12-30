@@ -2,65 +2,102 @@ package com.example.driverstudentregister.registration;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
+import com.example.driverstudentregister.databinding.RegistrationSignInBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Sign_in#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Sign_in extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private NavController controller;
+    private String username;
+    private String password;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private @NonNull
+    RegistrationSignInBinding binding;
 
-    public Sign_in() {
-        // Required empty public constructor
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = RegistrationSignInBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        return view;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Sign_in.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Sign_in newInstance(String param1, String param2) {
-        Sign_in fragment = new Sign_in();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        controller = Navigation.findNavController(view);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public void onStart() {
+        super.onStart();
+        binding.createAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username = binding.username.getText().toString();
+                password = binding.password.getText().toString();
+                if (username.trim().isEmpty() || password.trim().isEmpty()) {
+                    Toast.makeText(getActivity(), "username or password cannot be empty", 1).show();
+                    return;
+                }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.registration_sign_in, container, false);
+                firebaseAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getContext(), "A new user has been created successfully...", 0).show();
+                            controller.navigate(R.id.action_sign_in_to_home2);
+                        } else {
+                            Toast.makeText(getContext(), "Failed creating an account..." + task.getException(), 1).show();
+                        }
+                    }
+                });
+            }
+        });
+
+        binding.signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username = binding.username.getText().toString();
+                password = binding.password.getText().toString();
+                if (username.trim().isEmpty() || password.trim().isEmpty()) {
+                    Toast.makeText(getActivity(), "username or password cannot be empty", 1).show();
+                    return;
+                }
+
+                firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getContext(), "Logged in...", 0).show();
+                            controller.navigate(R.id.action_sign_in_to_home2);
+                        } else {
+                            Toast.makeText(getContext(), "Failed logging in..." + task.getException(), 1).show();
+                        }
+                    }
+                });
+            }
+        });
     }
 }
