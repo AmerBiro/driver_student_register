@@ -1,6 +1,5 @@
 package com.example.driverstudentregister.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,24 +12,19 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.HomeSplashScreenBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Splash_Screen extends Fragment {
 
     private FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     NavController controller;
 
-    private @NonNull
-    HomeSplashScreenBinding binding;
+    private @NonNull HomeSplashScreenBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +35,7 @@ public class Splash_Screen extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
         controller = Navigation.findNavController(view);
     }
 
@@ -61,11 +56,10 @@ public class Splash_Screen extends Fragment {
 
 
     public void signInAuto(){
-        FirebaseUser user = firebaseAuth.getCurrentUser();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (user == null){
+                if (firebaseUser == null){
                     binding.status.setText("No account founded...");
                     new Handler().postDelayed(new Runnable() {
                         @Override

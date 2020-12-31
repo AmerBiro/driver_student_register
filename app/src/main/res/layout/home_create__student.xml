@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         style="@style/viewpager_info_field"
         android:ems="15"
-        android:hint="1234567890"
+        android:hint="CPR. NO. 1234567890"
         />
 
     <Button
