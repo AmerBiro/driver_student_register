@@ -27,7 +27,6 @@ import java.util.List;
 
 public class Home extends Fragment {
 
-
     private @NonNull HomeHomeBinding binding;
 
     private NavController controller;

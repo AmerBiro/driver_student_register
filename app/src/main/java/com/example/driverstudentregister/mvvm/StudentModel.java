@@ -2,16 +2,18 @@ package com.example.driverstudentregister.mvvm;
 
 public class StudentModel {
 
-    private String name, street, zip_code, date;
-    private int phone, cpr;
+    private String name, street, zip_code, city, date, phone, cpr;
+
 
     public StudentModel() {
+
     }
 
-    public StudentModel(String name, String street, String zip_code, String date, int phone, int cpr) {
+    public StudentModel(String name, String street, String zip_code, String city, String date, String phone, String cpr) {
         this.name = name;
         this.street = street;
         this.zip_code = zip_code;
+        this.city = city;
         this.date = date;
         this.phone = phone;
         this.cpr = cpr;
@@ -29,15 +31,19 @@ public class StudentModel {
         return zip_code;
     }
 
+    public String getCity() {
+        return city;
+    }
+
     public String getDate() {
         return date;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public int getCpr() {
+    public String getCpr() {
         return cpr;
     }
 }

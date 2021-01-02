@@ -41,7 +41,7 @@
 
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/street"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/viewpager_info_field"
@@ -51,27 +51,35 @@
         />
 
     <EditText
-        android:id="@+id/post"
+        android:id="@+id/zip_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:inputType="number"
+        android:ems="15"
+        android:hint="Zip code"
+        />
+
+    <EditText
+        android:id="@+id/city"
         android:inputType="text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/viewpager_info_field"
         android:ems="15"
-        android:hint="Zip code and city"
+        android:hint="City"
         />
-
 
     <EditText
         android:id="@+id/cpr"
-        android:inputType="text"
+        android:inputType="number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/viewpager_info_field"
         android:ems="15"
-        android:hint="CPR. NO. 1234567890"
+        android:hint="CPR"
         android:layout_marginBottom="100dp"
         />
-
 
     <Button
         android:id="@+id/create_button"
@@ -82,6 +90,5 @@
         android:background="@drawable/ic_main_button"
         style="@style/button"
         />
-
 
 </LinearLayout>

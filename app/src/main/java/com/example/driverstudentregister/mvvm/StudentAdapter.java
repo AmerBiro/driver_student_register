@@ -45,13 +45,11 @@ public class StudentAdapter extends RecyclerView.Adapter <StudentAdapter.Student
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
         TextView name, date;
-
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
-
             name = itemView.findViewById(R.id.name);
             date = itemView.findViewById(R.id.date);
-
         }
     }
+
 }

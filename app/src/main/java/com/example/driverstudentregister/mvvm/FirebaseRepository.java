@@ -19,10 +19,11 @@ public class FirebaseRepository {
     private OnFirestoreTaskComplete onFirestoreTaskComplete;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private FirebaseUser user = firebaseAuth.getCurrentUser();
+    private FirebaseUser currentStudent = firebaseAuth.getCurrentUser();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-//    private CollectionReference programRef = firebaseFirestore.collection("users").document(user.getUid()).collection("ProgramList");
-    private CollectionReference studentRef = firebaseFirestore.collection("student");
+    private String studentId = currentStudent.getUid();
+//    private CollectionReference studentRef = firebaseFirestore.collection("student");
+    private CollectionReference studentRef = firebaseFirestore.collection("user").document(studentId).collection("student");
 
     public FirebaseRepository(OnFirestoreTaskComplete onFirestoreTaskComplete) {
         this.onFirestoreTaskComplete = onFirestoreTaskComplete;

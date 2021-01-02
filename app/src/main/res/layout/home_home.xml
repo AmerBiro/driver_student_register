@@ -7,8 +7,6 @@
     tools:context=".home.Home"
     >
 
-
-
     <TextView
         android:id="@+id/home"
         android:layout_width="wrap_content"
@@ -30,12 +28,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="110dp"
+        android:paddingBottom="50dp"
         >
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="50dp"
         >
 
         <androidx.core.widget.NestedScrollView
