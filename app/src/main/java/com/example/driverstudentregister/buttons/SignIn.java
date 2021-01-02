@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.functions;
+package com.example.driverstudentregister.buttons;
 
 import android.os.Handler;
 import android.view.View;
@@ -10,13 +10,13 @@ import com.example.driverstudentregister.R;
 
 import org.w3c.dom.Text;
 
-public class CustomButtonSignIn {
+public class SignIn {
 
     private ProgressBar progressBar;
     private Button check_mark, error;
     private TextView textView;
 
-    public CustomButtonSignIn(View view) {
+    public SignIn(View view) {
         this.progressBar = view.findViewById(R.id.custom_button_sign_in_progress_bar);
         this.check_mark = view.findViewById(R.id.custom_button_sign_in_check_mark);
         this.error = view.findViewById(R.id.custom_button_sign_in_error);

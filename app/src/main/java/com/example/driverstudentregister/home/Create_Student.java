@@ -12,10 +12,14 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.HomeCreateStudentBinding;
+import com.example.driverstudentregister.functions.FieldChecker;
 import com.example.driverstudentregister.mvvm.CreateStudent;
+import com.google.common.collect.MapMaker;
 
 import java.text.SimpleDateFormat;
 
@@ -23,13 +27,17 @@ import java.text.SimpleDateFormat;
 public class Create_Student extends Fragment {
 
 
-    private @NonNull HomeCreateStudentBinding binding;
+    private @NonNull
+    HomeCreateStudentBinding binding;
     NavController controller;
     private CreateStudent student;
     private String name, phone, street, zip_code, city, cpr, date;
+    private FieldChecker checker;
+    private EditText[] field;
+    private String[] errorMessage;
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = HomeCreateStudentBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
@@ -48,24 +56,39 @@ public class Create_Student extends Fragment {
         binding.createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = binding.name.getText().toString();
-                phone = binding.phone.getText().toString();
-                street = binding.street.getText().toString();
-                zip_code = binding.zipCode.getText().toString();
-                city = binding.city.getText().toString();
-                cpr = binding.cpr.getText().toString();
-                date = Double.toString(System.currentTimeMillis()/1000);
+                checker = new FieldChecker();
+                field = new EditText[6];
+                errorMessage = new String[6];
+                field[0] = binding.name;
+                field[1] = binding.phone;
+                field[2] = binding.street;
+                field[3] = binding.zipCode;
+                field[4] = binding.city;
+                field[5] = binding.cpr;
 
-                String timeStamp = new SimpleDateFormat("dd/MM/yyyy\tHH:mm").format(Calendar.getInstance().getTime());
+                errorMessage[0] = "Select a name";
+                errorMessage[1] = "Select a phone number";
+                errorMessage[2] = "Select a street";
+                errorMessage[3] = "Select a zip code";
+                errorMessage[4] = "Select a city";
+                errorMessage[5] = "Select a cpr number";
 
-                student = new CreateStudent(
-                        name, "name",
-                        phone, "phone",
-                        street, "street",
-                        zip_code, "zip_code",
-                        city, "city",
-                        cpr, "cpr",
-                        timeStamp, "date");
+                date = new SimpleDateFormat("dd/MM/yyyy\tHH:mm").format(Calendar.getInstance().getTime());
+
+                if (!checker.isEmpty(field, errorMessage)){
+                    student = new CreateStudent(
+                            field[0].getText().toString(), "name",
+                            field[1].getText().toString(), "phone",
+                            field[2].getText().toString(), "street",
+                            field[3].getText().toString(), "zip_code",
+                            field[4].getText().toString(), "city",
+                            field[5].getText().toString(), "cpr",
+                            date, "date");
+                }
+                else{
+                    Toast.makeText(getActivity(), "Error creating student", 0).show();
+                    return;
+                }
 
                 student.createStudent();
                 controller.navigate(R.id.action_create_Student_to_home2);
