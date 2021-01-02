@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_sign_in_to_home2"
             app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_sign_in_to_createAccount"
+            app:destination="@id/createAccount" />
     </fragment>
 
     <fragment
@@ -45,7 +48,11 @@
         android:id="@+id/create_Student"
         android:name="com.example.driverstudentregister.home.Create_Student"
         android:label="home_create__student"
-        tools:layout="@layout/home_create__student" />
+        tools:layout="@layout/home_create__student" >
+        <action
+            android:id="@+id/action_create_Student_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
 
 
     <fragment
@@ -54,6 +61,15 @@
         android:label="registration_sign_in"
         tools:layout="@layout/view_pager_viwer" >
 
+    </fragment>
+    <fragment
+        android:id="@+id/createAccount"
+        android:name="com.example.driverstudentregister.registration.CreateAccount"
+        android:label="registration_create_account"
+        tools:layout="@layout/registration_create_account" >
+        <action
+            android:id="@+id/action_createAccount_to_home2"
+            app:destination="@id/home2" />
     </fragment>
 
 

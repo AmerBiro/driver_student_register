@@ -14,6 +14,7 @@
     android:background="@drawable/student_item_frame">
 
     <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/student_item_name"
@@ -22,6 +23,7 @@
         />
 
     <TextView
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/practise_date"

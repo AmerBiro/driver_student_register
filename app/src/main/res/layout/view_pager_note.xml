@@ -29,8 +29,8 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="15dp"
         android:layout_margin="20dp"
-        android:background="@color/button"
         style="@style/button"
+        android:background="@drawable/ic_main_button"
         />
 
 </FrameLayout>

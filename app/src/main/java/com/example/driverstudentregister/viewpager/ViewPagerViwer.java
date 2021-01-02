@@ -52,16 +52,12 @@ public class ViewPagerViwer extends Fragment {
         binding.tabLayut.getTabAt(3).setIcon(R.drawable.ic_baseline_directions_car_24);
         binding.tabLayut.getTabAt(4).setIcon(R.drawable.ic_baseline_note_24);
 
-
         return view;
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
 

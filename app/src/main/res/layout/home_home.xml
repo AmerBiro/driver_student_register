@@ -21,40 +21,6 @@
         android:layout_marginTop="40dp"
         />
 
-    <LinearLayout
-        android:id="@+id/singe_item"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:paddingRight="40dp"
-        android:paddingLeft="40dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="@+id/recyclerview"
-        android:background="@color/button"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amer Biro"
-            style="@style/item"
-            android:textColor="@color/white"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01/01/2021"
-            style="@style/item"
-            android:textColor="@color/white"
-            />
-
-
-    </LinearLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"

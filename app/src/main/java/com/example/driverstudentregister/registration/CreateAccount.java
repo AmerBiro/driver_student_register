@@ -15,35 +15,31 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.RegistrationSignInBinding;
+import com.example.driverstudentregister.databinding.RegistrationCreateAccountBinding;
 import com.example.driverstudentregister.functions.CustomButtonCreateAccount;
-import com.example.driverstudentregister.functions.CustomButtonSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Sign_in extends Fragment {
 
+public class CreateAccount extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private NavController controller;
-    private CustomButtonSignIn signInButton;
-    private View customButtonSignIN;
+    private CustomButtonCreateAccount createAccountButton;
+    private View customButtonCreateAccount;
+    private @NonNull RegistrationCreateAccountBinding binding;
     private String username;
     private String password;
 
-    private @NonNull
-    RegistrationSignInBinding binding;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = RegistrationSignInBinding.inflate(inflater, container, false);
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = RegistrationCreateAccountBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -51,24 +47,18 @@ public class Sign_in extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         controller = Navigation.findNavController(view);
-        signInButton = new CustomButtonSignIn(view);
-        customButtonSignIN = view.findViewById(R.id.custom_button_sign_in);
+        createAccountButton = new CustomButtonCreateAccount(view);
+        customButtonCreateAccount = view.findViewById(R.id.custom_button_create_account);
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        createAccountButton.setDefaultText("Create");
 
-        signInButton.setDefaultText("Sign in");
 
-        binding.createAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.navigate(R.id.action_sign_in_to_createAccount);
-            }
-        });
-
-        customButtonSignIN.setOnClickListener(new View.OnClickListener() {
+        customButtonCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 username = binding.username.getText().toString();
@@ -78,28 +68,28 @@ public class Sign_in extends Fragment {
                     return;
                 }
 
-                signInButton.onClick("Please wait...");
+                createAccountButton.onClick("Please wait...");
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        firebaseAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    signInButton.onSuccess("Done");
+                                    createAccountButton.onSuccess("Done");
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            Toast.makeText(getContext(), "Logged in...", 0).show();
-                                            controller.navigate(R.id.action_sign_in_to_home2);
+                                            Toast.makeText(getContext(), "Account created successfully...", 0).show();
+                                            controller.navigate(R.id.action_createAccount_to_home2);
                                         }
                                     }, 1000);
                                 } else {
-                                    signInButton.onFailure("Error");
+                                    createAccountButton.onFailure("Error");
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            signInButton.onRepeat("Sign in");
+                                            createAccountButton.onRepeat("Create a new account");
                                         }
                                     }, 1000);
                                 }

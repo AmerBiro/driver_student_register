@@ -10,8 +10,16 @@
     >
 
 
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student info"
+        android:layout_gravity="center"
+        />
 
     <TextView
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/info_name"
@@ -83,6 +91,26 @@
         android:text="@string/info_cpr_example"
         style="@style/viewpager_info_field"
         android:ems="15"
+        android:layout_marginBottom="15dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/student_edit_button"
+        android:textAllCaps="false"
+        style="@style/button"
+        android:background="@drawable/ic_main_button"
+        android:layout_marginBottom="15dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:background="@drawable/ic_main_button"
+        style="@style/button"
         />
 
 </LinearLayout>

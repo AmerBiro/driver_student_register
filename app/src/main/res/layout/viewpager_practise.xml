@@ -319,7 +319,16 @@
                     android:visibility="invisible" />
             </LinearLayout>
 
-
+            <Button
+                android:id="@+id/create_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:background="@drawable/ic_main_button"
+                style="@style/button"
+                android:layout_marginTop="20dp"
+                />
 
 
         </LinearLayout>
