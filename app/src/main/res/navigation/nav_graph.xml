@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_home2_to_view_pager_info"
             app:destination="@id/view_pager_info" />
+        <action
+            android:id="@+id/action_home2_to_view_pager_viwer2"
+            app:destination="@id/view_pager_viwer" />
     </fragment>
 
     <fragment
@@ -64,6 +67,10 @@
         android:name="com.example.driverstudentregister.viewpager.ViewPagerViwer"
         android:label="registration_sign_in"
         tools:layout="@layout/view_pager_viwer" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment

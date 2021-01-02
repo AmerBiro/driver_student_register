@@ -18,6 +18,8 @@ import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.ViewPagerViwerBinding;
 import com.example.driverstudentregister.home.HomeDirections;
 
+import static android.content.ContentValues.TAG;
+
 
 public class ViewPagerViwer extends Fragment {
 
@@ -64,6 +66,9 @@ public class ViewPagerViwer extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        int position = ViewPagerViwerArgs.fromBundle(getArguments()).getPosition();
+        Log.d(TAG, "Position: " + position);
     }
 
     @Override

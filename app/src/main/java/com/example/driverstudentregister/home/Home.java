@@ -1,15 +1,13 @@
 package com.example.driverstudentregister.home;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -146,7 +144,8 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
 
     @Override
     public void onItemClicked(int postion) {
-        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo();
+//        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo();
+        HomeDirections.ActionHome2ToViewPagerViwer action = HomeDirections.actionHome2ToViewPagerViwer();
         action.setPosition(postion);
         controller.navigate(action);
     }

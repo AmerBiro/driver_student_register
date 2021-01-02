@@ -50,7 +50,7 @@ public class Info extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
 
-        int position = InfoArgs.fromBundle(getArguments()).getPosition();
-        Log.d(TAG, "Position: " + position);
+//        int position = InfoArgs.fromBundle(getArguments()).getPosition();
+//        Log.d(TAG, "Position: " + position);
     }
 }
