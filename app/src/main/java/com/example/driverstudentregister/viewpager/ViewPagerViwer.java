@@ -3,8 +3,12 @@ package com.example.driverstudentregister.viewpager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,7 @@ import android.view.WindowManager;
 
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.ViewPagerViwerBinding;
+import com.example.driverstudentregister.home.HomeDirections;
 
 
 public class ViewPagerViwer extends Fragment {
@@ -22,6 +27,7 @@ public class ViewPagerViwer extends Fragment {
     private Theory theory;
     private Practise practise;
     private Note note;
+
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +59,11 @@ public class ViewPagerViwer extends Fragment {
         binding.tabLayut.getTabAt(4).setIcon(R.drawable.ic_baseline_note_24);
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override

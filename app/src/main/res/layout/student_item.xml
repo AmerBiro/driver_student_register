@@ -13,7 +13,9 @@
     android:paddingBottom="20dp"
     android:gravity="center"
     app:layout_constraintTop_toTopOf="@+id/recyclerview"
-    android:background="@drawable/student_item_frame">
+    android:background="@drawable/student_item_frame"
+    android:id="@+id/button"
+    >
 
     <TextView
         android:id="@+id/name"

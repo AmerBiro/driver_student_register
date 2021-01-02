@@ -32,13 +32,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 
 import java.util.List;
 
 
-public class Home extends Fragment {
+public class Home extends Fragment implements StudentAdapter.OnStudentItemClicked {
 
     private @NonNull HomeHomeBinding binding;
 
@@ -85,6 +89,8 @@ public class Home extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+
+
     }
 
 
@@ -99,7 +105,7 @@ public class Home extends Fragment {
                 .setQuery(query, StudentModel.class)
                 .build();
 
-        adapter = new StudentAdapter(options);
+        adapter = new StudentAdapter(options, this);
     }
 
     private void RecyclerViewSetUp() {
@@ -116,7 +122,6 @@ public class Home extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Delete student");
                 builder.setMessage("Are you sure that you want to delete the following student")
@@ -139,4 +144,10 @@ public class Home extends Fragment {
         }).attachToRecyclerView(recyclerView);
     }
 
+    @Override
+    public void onItemClicked(int postion) {
+        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo();
+        action.setPosition(postion);
+        controller.navigate(action);
+    }
 }

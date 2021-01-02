@@ -3,6 +3,7 @@ package com.example.driverstudentregister.mvvm;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,18 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 
-
 public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, StudentAdapter.StudentViewHolder> {
 
-    public StudentAdapter(@NonNull FirestoreRecyclerOptions<StudentModel> options) {
+    private OnStudentItemClicked onStudentItemClicked;
+
+    public StudentAdapter(@NonNull FirestoreRecyclerOptions<StudentModel> options, OnStudentItemClicked onStudentItemClicked) {
         super(options);
+        this.onStudentItemClicked = onStudentItemClicked;
     }
+
+//    public StudentAdapter(@NonNull FirestoreRecyclerOptions<StudentModel> options) {
+//        super(options);
+//    }
 
     @Override
     protected void onBindViewHolder(@NonNull StudentViewHolder holder, int position, @NonNull StudentModel model) {
@@ -33,12 +40,20 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
         return new StudentViewHolder(view);
     }
 
-    class StudentViewHolder extends RecyclerView.ViewHolder{
+    class StudentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, date;
+        LinearLayout button;
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             date = itemView.findViewById(R.id.date);
+            button = itemView.findViewById(R.id.button);
+            button.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onStudentItemClicked.onItemClicked(getAdapterPosition());
         }
     }
 
@@ -46,5 +61,8 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
         getSnapshots().getSnapshot(position).getReference().delete();
     }
 
+    public interface OnStudentItemClicked {
+         void onItemClicked(int postion);
+    }
 
 }

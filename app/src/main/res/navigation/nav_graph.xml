@@ -43,7 +43,11 @@
         <action
             android:id="@+id/action_home2_to_view_pager_viwer"
             app:destination="@id/view_pager_viwer" />
+        <action
+            android:id="@+id/action_home2_to_view_pager_info"
+            app:destination="@id/view_pager_info" />
     </fragment>
+
     <fragment
         android:id="@+id/create_Student"
         android:name="com.example.driverstudentregister.home.Create_Student"
@@ -60,8 +64,8 @@
         android:name="com.example.driverstudentregister.viewpager.ViewPagerViwer"
         android:label="registration_sign_in"
         tools:layout="@layout/view_pager_viwer" >
-
     </fragment>
+
     <fragment
         android:id="@+id/createAccount"
         android:name="com.example.driverstudentregister.registration.CreateAccount"
@@ -70,6 +74,18 @@
         <action
             android:id="@+id/action_createAccount_to_home2"
             app:destination="@id/home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/view_pager_info"
+        android:name="com.example.driverstudentregister.viewpager.Info"
+        android:label="view_pager_info"
+        tools:layout="@layout/viewpager_info" >
+
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
 
