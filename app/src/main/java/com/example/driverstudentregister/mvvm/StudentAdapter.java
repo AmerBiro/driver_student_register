@@ -62,7 +62,7 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
     }
 
     public interface OnStudentItemClicked {
-         void onItemClicked(int postion);
+        void onItemClicked(int postion);
     }
 
 }
