@@ -1,6 +1,7 @@
 package com.example.driverstudentregister.home;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +41,10 @@ import com.google.firebase.firestore.Query;
 
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
 
-public class Home extends Fragment implements StudentAdapter.OnStudentItemClicked {
+
+public class Home extends Fragment {
 
     private @NonNull HomeHomeBinding binding;
 
@@ -53,6 +57,7 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
     private FirebaseUser user;
     private FirebaseFirestore db;
     private CollectionReference programRef;
+    private String studentName;
 
 
     @Override
@@ -87,8 +92,6 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
     public void onStop() {
         super.onStop();
         adapter.stopListening();
-
-
     }
 
 
@@ -103,7 +106,7 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
                 .setQuery(query, StudentModel.class)
                 .build();
 
-        adapter = new StudentAdapter(options, this);
+        adapter = new StudentAdapter(options);
     }
 
     private void RecyclerViewSetUp() {
@@ -120,9 +123,10 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Delete student");
-                builder.setMessage("Are you sure that you want to delete the following student")
+                builder.setMessage("Are you sure that you want to delete the following student: " + studentName)
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -140,13 +144,19 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
                 alert.show();
             }
         }).attachToRecyclerView(recyclerView);
+
+        adapter.setOnItemClickListener(new StudentAdapter.OnItemClickedListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                StudentModel model = documentSnapshot.toObject(StudentModel.class);
+                String id = documentSnapshot.getId();
+                Log.d(TAG, "onItemClick: " + position);
+        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo(model.getName(), model.getPhone(), model.getStreet(), model.getCity(), model.getZip_code(), model.getCpr(), id);
+        action.setPosition(position);
+        controller.navigate(action);
+            }
+        });
+
     }
 
-    @Override
-    public void onItemClicked(int postion) {
-//        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo();
-        HomeDirections.ActionHome2ToViewPagerViwer action = HomeDirections.actionHome2ToViewPagerViwer();
-        action.setPosition(postion);
-        controller.navigate(action);
-    }
 }

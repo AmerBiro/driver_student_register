@@ -75,20 +75,29 @@ public class Create_Student extends Fragment {
 
                 date = new SimpleDateFormat("dd/MM/yyyy\tHH:mm").format(Calendar.getInstance().getTime());
 
-                if (!checker.isEmpty(field, errorMessage)){
-                    student = new CreateStudent(
-                            field[0].getText().toString(), "name",
-                            field[1].getText().toString(), "phone",
-                            field[2].getText().toString(), "street",
-                            field[3].getText().toString(), "zip_code",
-                            field[4].getText().toString(), "city",
-                            field[5].getText().toString(), "cpr",
-                            date, "date");
-                }
-                else{
-                    Toast.makeText(getActivity(), "Error creating student", 0).show();
-                    return;
-                }
+//                if (!checker.isEmpty(field, errorMessage)){
+//                    student = new CreateStudent(
+//                            field[0].getText().toString(), "name",
+//                            field[1].getText().toString(), "phone",
+//                            field[2].getText().toString(), "street",
+//                            field[3].getText().toString(), "zip_code",
+//                            field[4].getText().toString(), "city",
+//                            field[5].getText().toString(), "cpr",
+//                            date, "date");
+//                }
+//                else{
+//                    Toast.makeText(getActivity(), "Error creating student", 0).show();
+//                    return;
+//                }
+
+                student = new CreateStudent(
+                        field[0].getText().toString(), "name",
+                        field[1].getText().toString(), "phone",
+                        field[2].getText().toString(), "street",
+                        field[3].getText().toString(), "zip_code",
+                        field[4].getText().toString(), "city",
+                        field[5].getText().toString(), "cpr",
+                        date, "date");
 
                 student.createStudent();
                 controller.navigate(R.id.action_create_Student_to_home2);

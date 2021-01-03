@@ -3,114 +3,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewpager.Info"
-    android:padding="25dp"
-    android:orientation="vertical"
     android:gravity="center_vertical"
-    >
-
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".viewpager.Info">
 
     <TextView
         style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:text="Student info"
         android:layout_gravity="center"
         />
 
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/info_name"
-        style="@style/viewpager_info_title"
-        />
-
     <EditText
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N/A"
         style="@style/viewpager_info_field"
-        android:ems="15"
-        />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/info_phone"
-        style="@style/viewpager_info_title"
-        />
+        android:ems="15"
+        android:hint="@string/student_name"
+        android:inputType="text" />
+
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N/A"
         style="@style/viewpager_info_field"
-        android:ems="15"
-        />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/info_address"
-        style="@style/viewpager_info_title"
-        />
+        android:ems="15"
+        android:hint="@string/student_phone"
+        android:inputType="number" />
+
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/street"
+        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="N/A"
-        style="@style/viewpager_info_field"
         android:ems="15"
-        android:backgroundTint="#ffffff"
-        />
+        android:hint="Street, Apartment NO., etc..."
+        android:inputType="text" />
 
     <EditText
-        android:id="@+id/post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N/A"
+        android:id="@+id/zip_code"
         style="@style/viewpager_info_field"
-        android:ems="15"
-        />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/info_cpr"
-        style="@style/viewpager_info_title"
-        />
+        android:ems="15"
+        android:hint="Zip code"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/city"
+        style="@style/viewpager_info_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="City"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/cpr"
+        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="N/A"
-        style="@style/viewpager_info_field"
         android:ems="15"
-        android:layout_marginBottom="15dp"
+        android:hint="CPR"
+        android:inputType="number"
+        android:layout_marginBottom="50dp"
         />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/student_edit_button"
-        android:textAllCaps="false"
+        android:id="@+id/edit"
         style="@style/button"
-        android:background="@drawable/ic_main_button"
-        android:layout_marginBottom="15dp"
-        />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_main_button"
+        android:text="Edit"
+        android:layout_marginBottom="10dp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_main_button"
+        android:text="Save"
+        android:layout_marginBottom="10dp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/delete"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_main_button"
         android:text="Delete"
-        android:textAllCaps="false"
-        android:background="@drawable/ic_main_button"
-        style="@style/button"
-        />
+        android:layout_marginBottom="10dp"
+        android:textAllCaps="false" />
 
 </LinearLayout>

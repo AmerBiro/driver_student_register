@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -17,6 +19,10 @@ import android.view.WindowManager;
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.ViewPagerViwerBinding;
 import com.example.driverstudentregister.home.HomeDirections;
+import com.example.driverstudentregister.mvvm.StudentModel;
+import com.example.driverstudentregister.mvvm.StudentViewModel;
+
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,7 +35,7 @@ public class ViewPagerViwer extends Fragment {
     private Theory theory;
     private Practise practise;
     private Note note;
-
+    private int position;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,13 +73,8 @@ public class ViewPagerViwer extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        int position = ViewPagerViwerArgs.fromBundle(getArguments()).getPosition();
+        position = ViewPagerViwerArgs.fromBundle(getArguments()).getPosition();
         Log.d(TAG, "Position: " + position);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
 

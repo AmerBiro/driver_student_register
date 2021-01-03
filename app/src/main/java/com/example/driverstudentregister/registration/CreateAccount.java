@@ -28,7 +28,6 @@ public class CreateAccount extends Fragment {
     private FirebaseUser firebaseUser;
     private NavController controller;
     private com.example.driverstudentregister.buttons.CreateAccount createAccountButton;
-    private View customButtonCreateAccount;
     private @NonNull RegistrationCreateAccountBinding binding;
     private String username;
     private String password;
@@ -46,9 +45,8 @@ public class CreateAccount extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         controller = Navigation.findNavController(view);
-        createAccountButton = new com.example.driverstudentregister.buttons.CreateAccount(view);
-        customButtonCreateAccount = view.findViewById(R.id.custom_button_create_account);
-
+        createAccountButton = new com.example.driverstudentregister.buttons.CreateAccount();
+        createAccountButton.setView(view);
     }
 
     @Override
@@ -57,7 +55,7 @@ public class CreateAccount extends Fragment {
         createAccountButton.setDefaultText("Create");
 
 
-        customButtonCreateAccount.setOnClickListener(new View.OnClickListener() {
+        createAccountButton.getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 username = binding.username.getText().toString();

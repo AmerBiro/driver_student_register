@@ -29,7 +29,6 @@ public class Sign_in extends Fragment {
     private FirebaseUser firebaseUser;
     private NavController controller;
     private SignIn signInButton;
-    private View customButtonSignIN;
     private String username;
     private String password;
 
@@ -50,8 +49,8 @@ public class Sign_in extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         controller = Navigation.findNavController(view);
-        signInButton = new SignIn(view);
-        customButtonSignIN = view.findViewById(R.id.custom_button_sign_in);
+        signInButton = new SignIn();
+        signInButton.setView(view);
     }
 
     @Override
@@ -67,7 +66,7 @@ public class Sign_in extends Fragment {
             }
         });
 
-        customButtonSignIN.setOnClickListener(new View.OnClickListener() {
+        signInButton.getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 username = binding.username.getText().toString();
