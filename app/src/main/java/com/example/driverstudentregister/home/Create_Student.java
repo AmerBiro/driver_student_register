@@ -23,18 +23,15 @@ import com.google.common.collect.MapMaker;
 
 import java.text.SimpleDateFormat;
 
-
 public class Create_Student extends Fragment {
-
 
     private @NonNull
     HomeCreateStudentBinding binding;
     NavController controller;
     private CreateStudent student;
     private String name, phone, street, zip_code, city, cpr, date;
-    private FieldChecker checker;
-    private EditText[] field;
-    private String[] errorMessage;
+    private String price, discount;
+    private String note;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +44,7 @@ public class Create_Student extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
+        student = new CreateStudent();
     }
 
     @Override
@@ -56,48 +54,30 @@ public class Create_Student extends Fragment {
         binding.createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checker = new FieldChecker();
-                field = new EditText[6];
-                errorMessage = new String[6];
-                field[0] = binding.name;
-                field[1] = binding.phone;
-                field[2] = binding.street;
-                field[3] = binding.zipCode;
-                field[4] = binding.city;
-                field[5] = binding.cpr;
-
-                errorMessage[0] = "Select a name";
-                errorMessage[1] = "Select a phone number";
-                errorMessage[2] = "Select a street";
-                errorMessage[3] = "Select a zip code";
-                errorMessage[4] = "Select a city";
-                errorMessage[5] = "Select a cpr number";
-
+                name = binding.name.getText().toString();
+                phone = binding.phone.getText().toString();
+                street = binding.street.getText().toString();
+                zip_code = binding.zipCode.getText().toString();
+                city = binding.city.getText().toString();
+                cpr = binding.cpr.getText().toString();
                 date = new SimpleDateFormat("dd/MM/yyyy\tHH:mm").format(Calendar.getInstance().getTime());
 
-//                if (!checker.isEmpty(field, errorMessage)){
-//                    student = new CreateStudent(
-//                            field[0].getText().toString(), "name",
-//                            field[1].getText().toString(), "phone",
-//                            field[2].getText().toString(), "street",
-//                            field[3].getText().toString(), "zip_code",
-//                            field[4].getText().toString(), "city",
-//                            field[5].getText().toString(), "cpr",
-//                            date, "date");
-//                }
-//                else{
-//                    Toast.makeText(getActivity(), "Error creating student", 0).show();
-//                    return;
-//                }
+                price = binding.price.getText().toString();
+                discount = binding.discount.getText().toString();
 
-                student = new CreateStudent(
-                        field[0].getText().toString(), "name",
-                        field[1].getText().toString(), "phone",
-                        field[2].getText().toString(), "street",
-                        field[3].getText().toString(), "zip_code",
-                        field[4].getText().toString(), "city",
-                        field[5].getText().toString(), "cpr",
-                        date, "date");
+                if (name.trim().isEmpty()){
+                    binding.name.setError("A student name cannot be empty!");
+                    return;
+                }
+
+                if (price.trim().isEmpty())
+                    price = "13500";
+                if (discount.trim().isEmpty())
+                    discount = "0";
+
+                student.setInfo(name, phone, street, zip_code, city, cpr, date);
+                student.setPrice(price, discount);
+                student.setNote("Add a note to " + name);
 
                 student.createStudent();
                 controller.navigate(R.id.action_create_Student_to_home2);

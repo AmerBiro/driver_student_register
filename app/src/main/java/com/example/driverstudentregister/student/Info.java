@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.viewpager;
+package com.example.driverstudentregister.student;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,15 +9,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.ViewpagerInfoBinding;
+import com.example.driverstudentregister.databinding.StudentInfoBinding;
 import com.example.driverstudentregister.mvvm.StudentViewModel;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,39 +29,38 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Info extends Fragment {
 
-    private @NonNull ViewpagerInfoBinding binding;
+    private @NonNull StudentInfoBinding binding;
     private NavController controller;
-    private StudentViewModel studentViewModel;
-    private String studentId, name, phone, street, zip_code, city, cpr;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    private String name, phone, street, zip_code, city, cpr, studentId, price, discount;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = ViewpagerInfoBinding.inflate(inflater, container, false);
+        binding = StudentInfoBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         binding.name.setEnabled(false);
-        binding.phone.setEnabled(false);
-        binding.street.setEnabled(false);
-        binding.zipCode.setEnabled(false);
-        binding.city.setEnabled(false);
-        binding.cpr.setEnabled(false);
-
-        name = InfoArgs.fromBundle(getArguments()).getName();
-        phone = InfoArgs.fromBundle(getArguments()).getPhone();
-        street = InfoArgs.fromBundle(getArguments()).getStreet();
-        zip_code = InfoArgs.fromBundle(getArguments()).getZipCode();
-        city = InfoArgs.fromBundle(getArguments()).getCity();
-        cpr = InfoArgs.fromBundle(getArguments()).getCpr();
-
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        controller = Navigation.findNavController(view);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        name = InfoArgs.fromBundle(getArguments()).getName();
+        phone = InfoArgs.fromBundle(getArguments()).getPhone();
+        street = InfoArgs.fromBundle(getArguments()).getStreet();
+        zip_code = InfoArgs.fromBundle(getArguments()).getZipCode();
+        city = InfoArgs.fromBundle(getArguments()).getCity();
+        cpr = InfoArgs.fromBundle(getArguments()).getCpr();
         studentId = InfoArgs.fromBundle(getArguments()).getStudentId();
+        price = InfoArgs.fromBundle(getArguments()).getPrice();
+        discount = InfoArgs.fromBundle(getArguments()).getDiscount();
+        controller = Navigation.findNavController(view);
     }
 
     @Override
@@ -71,25 +73,12 @@ public class Info extends Fragment {
         binding.zipCode.setText(zip_code);
         binding.city.setText(city);
         binding.cpr.setText(cpr);
-
-        binding.edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.name.setEnabled(true);
-                binding.phone.setEnabled(true);
-                binding.street.setEnabled(true);
-                binding.zipCode.setEnabled(true);
-                binding.city.setEnabled(true);
-                binding.cpr.setEnabled(true);
-            }
-        });
+        binding.price.setText(price);
+        binding.discount.setText(discount);
 
         binding.save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
                 Map<String, Object> student = new HashMap<>();
 
                 student.put("name", binding.name.getText().toString());
@@ -98,12 +87,27 @@ public class Info extends Fragment {
                 student.put("zip_code", binding.zipCode.getText().toString());
                 student.put("city", binding.city.getText().toString());
                 student.put("cpr", binding.cpr.getText().toString());
+                student.put("price", binding.price.getText().toString());
+                student.put("discount", binding.discount.getText().toString());
 
                 Task<Void> documentReference = FirebaseFirestore
                         .getInstance().collection("user")
                         .document(firebaseUser.getUid()).collection("student")
                         .document(studentId).update(student);
-                controller.navigate(R.id.action_view_pager_info_to_home2);
+
+                InfoDirections.ActionStudentInfoToMain3 action = InfoDirections.actionStudentInfoToMain3();
+                action.setName(binding.name.getText().toString());
+                action.setPhone(phone);
+                action.setStreet(street);
+                action.setZipCode(zip_code);
+                action.setCity(city);
+                action.setCpr(cpr);
+                action.setStudentId(studentId);
+                action.setPrice(price);
+                action.setDiscount(discount);
+                controller.navigate(action);
+                controller.navigateUp();
+                controller.popBackStack();
             }
         });
 
@@ -113,16 +117,14 @@ public class Info extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Delete student");
                 builder.setMessage("Are you sure that you want to delete the following student: " + name)
-                        .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                                 Task<Void> documentReference = FirebaseFirestore
                                         .getInstance().collection("user")
                                         .document(firebaseUser.getUid()).collection("student")
                                         .document(studentId).delete();
-                                controller.navigate(R.id.action_view_pager_info_to_home2);
+                                controller.navigate(R.id.action_student_info_to_home27);
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -130,7 +132,6 @@ public class Info extends Fragment {
                                 dialog.cancel();
                             }
                         });
-
                 AlertDialog alert = builder.create();
                 alert.show();
             }

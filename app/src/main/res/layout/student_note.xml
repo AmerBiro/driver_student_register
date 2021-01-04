@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewpager.Note"
+    tools:context=".student.Note"
     >
 
     <EditText
+        android:id="@+id/note"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="New note"
+        android:hint=""
         style="@style/viewpager_theory_title"
         android:inputType="textMultiLine"
         android:textAlignment="textStart"
@@ -23,9 +24,10 @@
         />
 
     <Button
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SAVE"
+        android:text="Save"
         android:layout_gravity="bottom"
         android:layout_marginBottom="15dp"
         android:layout_margin="20dp"

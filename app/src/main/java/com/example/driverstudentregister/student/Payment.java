@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.viewpager;
+package com.example.driverstudentregister.student;
 
 import android.os.Bundle;
 
@@ -12,15 +12,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.ViewpagerPaymentBinding;
+import com.example.driverstudentregister.databinding.StudentPaymentBinding;
 
 public class Payment extends Fragment {
 
-    private @NonNull ViewpagerPaymentBinding binding;
+    private @NonNull StudentPaymentBinding binding;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = ViewpagerPaymentBinding.inflate(inflater, container, false);
+        binding = StudentPaymentBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         binding.price.setEnabled(false);

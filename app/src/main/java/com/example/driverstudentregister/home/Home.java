@@ -1,7 +1,6 @@
 package com.example.driverstudentregister.home;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,29 +18,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.HomeHomeBinding;
 import com.example.driverstudentregister.mvvm.StudentAdapter;
 import com.example.driverstudentregister.mvvm.StudentModel;
-import com.example.driverstudentregister.mvvm.StudentViewModel;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-
-import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 
 public class Home extends Fragment {
@@ -50,15 +38,12 @@ public class Home extends Fragment {
 
     private NavController controller;
     private RecyclerView recyclerView;
-    private StudentViewModel studentViewModel;
     private StudentAdapter adapter;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
-    private FirebaseFirestore db;
-    private CollectionReference programRef;
-    private String studentName;
-
+    private FirebaseFirestore firestore;
+    private CollectionReference student;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,6 +61,9 @@ public class Home extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        firestore = FirebaseFirestore.getInstance();
         AdapterSetup();
         RecyclerViewSetUp();
         adapter.startListening();
@@ -86,6 +74,7 @@ public class Home extends Fragment {
                 controller.navigate(R.id.action_home2_to_create_Student);
             }
         });
+
     }
 
     @Override
@@ -96,16 +85,13 @@ public class Home extends Fragment {
 
 
     private void AdapterSetup() {
-        firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
-        db = FirebaseFirestore.getInstance();
-        programRef = db.collection("user").document(user.getUid()).collection("student");
-        Query query = programRef.orderBy("name", Query.Direction.DESCENDING);
 
+        student = firestore.collection("user").document(user.getUid())
+                .collection("student");
+        Query query = student.orderBy("name", Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<StudentModel> options = new FirestoreRecyclerOptions.Builder<StudentModel>()
                 .setQuery(query, StudentModel.class)
                 .build();
-
         adapter = new StudentAdapter(options);
     }
 
@@ -126,7 +112,7 @@ public class Home extends Fragment {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Delete student");
-                builder.setMessage("Are you sure that you want to delete the following student: " + studentName)
+                builder.setMessage("Are you sure that you want to delete the following student")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -146,16 +132,29 @@ public class Home extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
         adapter.setOnItemClickListener(new StudentAdapter.OnItemClickedListener() {
+            private static final String TAG = "";
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 StudentModel model = documentSnapshot.toObject(StudentModel.class);
                 String id = documentSnapshot.getId();
                 Log.d(TAG, "onItemClick: " + position);
-        HomeDirections.ActionHome2ToViewPagerInfo action = HomeDirections.actionHome2ToViewPagerInfo(model.getName(), model.getPhone(), model.getStreet(), model.getCity(), model.getZip_code(), model.getCpr(), id);
-        action.setPosition(position);
-        controller.navigate(action);
+                HomeDirections.ActionHome2ToMain action = HomeDirections.actionHome2ToMain();
+                action.setName(model.getName());
+                action.setPhone(model.getPhone());
+                action.setStreet(model.getStreet());
+                action.setZipCode(model.getZip_code());
+                action.setCity(model.getCity());
+                action.setCpr(model.getCpr());
+                action.setStudentId(id);
+                action.setPrice(model.getPrice());
+                action.setDiscount(model.getDiscount());
+                action.setNote(model.getNote());
+                controller.navigate(action);
             }
         });
+
+
+
 
     }
 

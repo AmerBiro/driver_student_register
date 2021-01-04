@@ -36,6 +36,11 @@
         <item name="android:textColor">@color/title</item>
     </style>
 
+    <style name="main_menu_sub_title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/title</item>
+    </style>
+
     <style name="field">
         <item name="android:textSize">20sp</item>
         <item name="android:textColorHint">@color/title</item>

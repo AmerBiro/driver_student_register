@@ -77,9 +77,31 @@
         android:layout_height="wrap_content"
         style="@style/viewpager_info_field"
         android:ems="15"
-        android:hint="CPR"
-        android:layout_marginBottom="100dp"
+        android:hint="Cpr"
         />
+
+    <EditText
+        android:id="@+id/price"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:ems="15"
+        android:hint="Price: 13500 DKK"
+        />
+
+    <EditText
+        android:id="@+id/discount"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:ems="15"
+        android:hint="Discount: 0 DKK"
+        android:layout_marginBottom="50dp"
+        />
+
+
 
     <Button
         android:id="@+id/create_button"

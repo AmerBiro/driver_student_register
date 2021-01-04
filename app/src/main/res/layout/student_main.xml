@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".student.Main"
+    >
+
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Main Menu"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/main_menu_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
+        android:text="Student name"
+        />
+
+
+
+    <Button
+        android:id="@+id/edit"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Edit Info"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/payment"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Payment"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/theory"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Theory"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/practise"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Practise"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/note"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Note"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/back"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_main_button"
+        android:text="Back"
+        android:textAllCaps="false" />
+
+</LinearLayout>

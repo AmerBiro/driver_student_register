@@ -6,84 +6,100 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".viewpager.Info">
+    tools:context=".student.Info">
 
     <TextView
         style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:text="Student info"
+        android:text="Edit student info"
         android:layout_gravity="center"
         />
 
     <EditText
         android:id="@+id/name"
-        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        style="@style/viewpager_info_field"
         android:ems="15"
         android:hint="@string/student_name"
-        android:inputType="text" />
+        />
 
 
     <EditText
         android:id="@+id/phone"
-        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
         android:ems="15"
+        android:inputType="number"
         android:hint="@string/student_phone"
-        android:inputType="number" />
+        />
 
 
     <EditText
         android:id="@+id/street"
-        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:inputType="text"
         android:ems="15"
         android:hint="Street, Apartment NO., etc..."
-        android:inputType="text" />
+        />
 
     <EditText
         android:id="@+id/zip_code"
-        style="@style/viewpager_info_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:inputType="number"
         android:ems="15"
         android:hint="Zip code"
-        android:inputType="number" />
+        />
 
     <EditText
         android:id="@+id/city"
-        style="@style/viewpager_info_field"
+        android:inputType="text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
         android:ems="15"
         android:hint="City"
-        android:inputType="text" />
+        />
 
     <EditText
         android:id="@+id/cpr"
-        style="@style/viewpager_info_field"
+        android:inputType="text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
         android:ems="15"
-        android:hint="CPR"
+        android:hint="Cpr"
+        />
+
+    <EditText
+        android:id="@+id/price"
         android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:ems="15"
+        android:hint="Price"
+        />
+
+    <EditText
+        android:id="@+id/discount"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/viewpager_info_field"
+        android:ems="15"
+        android:hint="Discount"
         android:layout_marginBottom="50dp"
         />
 
-    <Button
-        android:id="@+id/edit"
-        style="@style/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_main_button"
-        android:text="Edit"
-        android:layout_marginBottom="10dp"
-        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/save"
@@ -104,5 +120,6 @@
         android:text="Delete"
         android:layout_marginBottom="10dp"
         android:textAllCaps="false" />
+
 
 </LinearLayout>

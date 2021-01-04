@@ -1,27 +1,25 @@
 package com.example.driverstudentregister.mvvm;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.driverstudentregister.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
 import com.google.firebase.firestore.DocumentSnapshot;
+
 
 
 public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, StudentAdapter.StudentViewHolder> {
 
     private OnItemClickedListener listener;
+    private String name;
 
     public StudentAdapter(@NonNull FirestoreRecyclerOptions<StudentModel> options) {
         super(options);
@@ -42,12 +40,10 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
 
     class StudentViewHolder extends RecyclerView.ViewHolder  {
         TextView name, date;
-        LinearLayout button;
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             date = itemView.findViewById(R.id.date);
-            button = itemView.findViewById(R.id.button);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,6 +54,7 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
                     }
                 }
             });
+
 
         }
 
