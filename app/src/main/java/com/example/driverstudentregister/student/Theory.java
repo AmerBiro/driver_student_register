@@ -1,28 +1,49 @@
 package com.example.driverstudentregister.student;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.driverstudentregister.R;
 import com.example.driverstudentregister.databinding.StudentTheoryBinding;
+import com.example.driverstudentregister.functions.CustomDatePicker;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Theory extends Fragment {
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Theory extends Fragment   {
 
     private @NonNull
     StudentTheoryBinding binding;
     private String lecture1, lecture2, lecture3, lecture4, lecture5, lecture6, lecture7, lecture8;
     private String[] date;
     private TextView[] dateTextView;
+    private CustomDatePicker datePicker;
+    private NavController controller;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    private String userId, studentId;
+
 
 
     @Override
@@ -35,7 +56,12 @@ public class Theory extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        controller = Navigation.findNavController(view);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        userId = firebaseUser.getUid();
+        studentId = TheoryArgs.fromBundle(getArguments()).getStudentId();
+        datePicker = new CustomDatePicker();
         date = new String[8];
         dateTextView = new TextView[8];
         date[0] = TheoryArgs.fromBundle(getArguments()).getLecture1();
@@ -73,10 +99,99 @@ public class Theory extends Fragment {
         binding.lecture01Date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture01Date);
+                datePicker.datePicker(getActivity(), binding.lecture01Date);
+            }
+        });
 
+        binding.lecture02Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture02Date);
+            }
+        });
+
+        binding.lecture03Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture03Date);
+            }
+        });
+
+        binding.lecture04Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture04Date);
+            }
+        });
+
+        binding.lecture05Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture05Date);
+            }
+        });
+
+        binding.lecture06Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture06Date);
+            }
+        });
+
+        binding.lecture07Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture07Date);
+            }
+        });
+
+        binding.lecture08Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.datePicker(getActivity(), binding.lecture08Date);
+            }
+        });
+
+        binding.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDate();
             }
         });
 
 
     }
+
+    private void updateDate() {
+        Map<String, Object> updateDate = new HashMap<>();
+        updateDate.put("lecture1", binding.lecture01Date.getText().toString());
+        updateDate.put("lecture2", binding.lecture02Date.getText().toString());
+        updateDate.put("lecture3", binding.lecture03Date.getText().toString());
+        updateDate.put("lecture4", binding.lecture04Date.getText().toString());
+        updateDate.put("lecture5", binding.lecture05Date.getText().toString());
+        updateDate.put("lecture6", binding.lecture06Date.getText().toString());
+        updateDate.put("lecture7", binding.lecture07Date.getText().toString());
+        updateDate.put("lecture8", binding.lecture08Date.getText().toString());
+
+        Task<Void> documentReference = FirebaseFirestore
+                .getInstance().collection("user")
+                .document(userId).collection("student")
+                .document(studentId).update(updateDate);
+
+        TheoryDirections.ActionTheory2ToMain action = TheoryDirections.actionTheory2ToMain();
+        action.setStudentId(studentId);
+        action.setLecture1(dateTextView[0].getText().toString());
+        action.setLecture2(dateTextView[1].getText().toString());
+        action.setLecture3(dateTextView[2].getText().toString());
+        action.setLecture4(dateTextView[3].getText().toString());
+        action.setLecture5(dateTextView[4].getText().toString());
+        action.setLecture6(dateTextView[5].getText().toString());
+        action.setLecture7(dateTextView[6].getText().toString());
+        action.setLecture8(dateTextView[7].getText().toString());
+        controller.navigate(action);
+        controller.navigateUp();
+        controller.popBackStack();
+    }
+
 }
