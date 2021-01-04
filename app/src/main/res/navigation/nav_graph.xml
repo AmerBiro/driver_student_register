@@ -181,6 +181,38 @@
             android:name="note"
             app:argType="string"
             android:defaultValue="NA" />
+        <argument
+            android:name="lecture1"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture2"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture3"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture4"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture5"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture6"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture7"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture8"
+            app:argType="string"
+            android:defaultValue="NA" />
     </fragment>
 
 
@@ -205,16 +237,62 @@
             app:argType="string"
             android:defaultValue="NA" />
     </fragment>
+
     <fragment
         android:id="@+id/theory2"
         android:name="com.example.driverstudentregister.student.Theory"
         android:label="student_theory"
-        tools:layout="@layout/student_theory" />
+        tools:layout="@layout/student_theory" >
+        <action
+            android:id="@+id/action_theory2_to_main"
+            app:destination="@id/main" />
+        <argument
+            android:name="studentId"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture1"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture2"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture3"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture4"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture5"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture6"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture7"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="lecture8"
+            app:argType="string"
+            android:defaultValue="NA" />
+    </fragment>
+
     <fragment
         android:id="@+id/practise2"
         android:name="com.example.driverstudentregister.student.Practise"
         android:label="student_practise"
-        tools:layout="@layout/student_practise" />
+        tools:layout="@layout/student_practise" >
+        <action
+            android:id="@+id/action_practise2_to_main"
+            app:destination="@id/main" />
+    </fragment>
     <fragment
         android:id="@+id/note2"
         android:name="com.example.driverstudentregister.student.Note"

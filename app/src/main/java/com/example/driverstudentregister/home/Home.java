@@ -148,6 +148,14 @@ public class Home extends Fragment {
                 action.setStudentId(id);
                 action.setPrice(model.getPrice());
                 action.setDiscount(model.getDiscount());
+                action.setLecture1(model.getLecture1());
+                action.setLecture2(model.getLecture2());
+                action.setLecture3(model.getLecture3());
+                action.setLecture4(model.getLecture4());
+                action.setLecture5(model.getLecture5());
+                action.setLecture6(model.getLecture6());
+                action.setLecture7(model.getLecture7());
+                action.setLecture8(model.getLecture8());
                 action.setNote(model.getNote());
                 controller.navigate(action);
             }

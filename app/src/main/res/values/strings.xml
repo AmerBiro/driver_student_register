@@ -70,7 +70,7 @@
     <string name="theory_06">Lecture 06</string>
     <string name="theory_07">Lecture 07</string>
     <string name="theory_08">Lecture 08</string>
-    <string name="theory_date">xx/xx/xxxx</string>
+    <string name="theory_date">dd/mm/yyyy</string>
 
 
     // Viewpager Practise
