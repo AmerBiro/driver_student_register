@@ -64,6 +64,17 @@ public class Main extends Fragment {
         lecture7 = MainArgs.fromBundle(getArguments()).getLecture7();
         lecture8 = MainArgs.fromBundle(getArguments()).getLecture8();
 
+        practise1 = MainArgs.fromBundle(getArguments()).getPractise1();
+        practise2 = MainArgs.fromBundle(getArguments()).getPractise2();
+        practise3 = MainArgs.fromBundle(getArguments()).getPractise3();
+        practise4 = MainArgs.fromBundle(getArguments()).getPractise4();
+        practise5 = MainArgs.fromBundle(getArguments()).getPractise5();
+        practise6 = MainArgs.fromBundle(getArguments()).getPractise6();
+        practise7 = MainArgs.fromBundle(getArguments()).getPractise7();
+        practise8 = MainArgs.fromBundle(getArguments()).getPractise8();
+        practise9 = MainArgs.fromBundle(getArguments()).getPractise9();
+        practise10 = MainArgs.fromBundle(getArguments()).getPractise10();
+
         note = MainArgs.fromBundle(getArguments()).getNote();
     }
 
@@ -121,7 +132,22 @@ public class Main extends Fragment {
         binding.practise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.navigate(R.id.action_main_to_practise2);
+                MainDirections.ActionMainToPractise2 action = MainDirections.actionMainToPractise2();
+
+                action.setStudentId(studentId);
+
+                action.setPractise1(practise1);
+                action.setPractise2(practise2);
+                action.setPractise3(practise3);
+                action.setPractise4(practise4);
+                action.setPractise5(practise5);
+                action.setPractise6(practise6);
+                action.setPractise7(practise7);
+                action.setPractise8(practise8);
+                action.setPractise9(practise9);
+                action.setPractise10(practise10);
+
+                controller.navigate(action);
             }
         });
 
@@ -136,13 +162,6 @@ public class Main extends Fragment {
             }
         });
 
-        binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), studentId, 0).show();
-                controller.navigate(R.id.action_main_to_home2);
-            }
-        });
 
     }
 

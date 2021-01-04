@@ -77,7 +77,7 @@ public class Create_Student extends Fragment {
 
                 student.setInfo(name, phone, street, zip_code, city, cpr, date);
                 student.setPrice(price, discount);
-                student.setNote("Add a note to " + name);
+                student.setNote("");
 
                 student.createStudent();
                 controller.navigate(R.id.action_create_Student_to_home2);

@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top|left"
-    android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".student.Practise">
+    android:orientation="vertical"
+    tools:context=".student.Practise"
+    android:gravity="center|top|left"
+    >
 
 
     <ScrollView
@@ -16,321 +17,359 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                >
                 <CheckBox
                     android:id="@+id/checkBox_01"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_01"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_01_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_01"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise01Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="40dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_02"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_02"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_02_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_02"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise02Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_03"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_03"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_03_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_03"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise03Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_04"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_04"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_04_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_04"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise04Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_05"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_05"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_05_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_05"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise05Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_06"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_06"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_06_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_06"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise06Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_07"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_07"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_07_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_07"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise07Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_08"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_08"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_08_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_08"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise08Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_09"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_09"
-                    />
-
-                <EditText
-                    android:id="@+id/practise_09_date"
-                    style="@style/viewpager_practise_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="48dp"
-                    android:ems="6"
-                    android:text="@string/theory_date"
                     android:visibility="invisible"
+
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/practise_09"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise09Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theory_date"
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="77dp"
+                    android:visibility="visible"
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
 
+                >
                 <CheckBox
                     android:id="@+id/checkBox_10"
-                    style="@style/viewpager_practise_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
+                    android:layout_height="wrap_content"
                     style="@style/viewpager_theory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/practise_10"
-                    />
+                    android:visibility="invisible"
 
-                <EditText
-                    android:id="@+id/practise_10_date"
-                    style="@style/viewpager_practise_title"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="6"
+                    android:text="@string/practise_10"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise10Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/theory_date"
-                    android:visibility="invisible" />
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="visible"
+                    />
             </LinearLayout>
 
             <Button
-                android:id="@+id/create_button"
+                android:id="@+id/save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save"
                 android:textAllCaps="false"
+                android:text="Save"
                 android:background="@drawable/ic_main_button"
                 style="@style/button"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 />
-
-
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

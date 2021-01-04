@@ -139,15 +139,19 @@ public class Home extends Fragment {
                 String id = documentSnapshot.getId();
                 Log.d(TAG, "onItemClick: " + position);
                 HomeDirections.ActionHome2ToMain action = HomeDirections.actionHome2ToMain();
+
+                action.setStudentId(id);
+
                 action.setName(model.getName());
                 action.setPhone(model.getPhone());
                 action.setStreet(model.getStreet());
                 action.setZipCode(model.getZip_code());
                 action.setCity(model.getCity());
                 action.setCpr(model.getCpr());
-                action.setStudentId(id);
+
                 action.setPrice(model.getPrice());
                 action.setDiscount(model.getDiscount());
+
                 action.setLecture1(model.getLecture1());
                 action.setLecture2(model.getLecture2());
                 action.setLecture3(model.getLecture3());
@@ -156,7 +160,20 @@ public class Home extends Fragment {
                 action.setLecture6(model.getLecture6());
                 action.setLecture7(model.getLecture7());
                 action.setLecture8(model.getLecture8());
+
+                action.setPractise1(model.getPractise1());
+                action.setPractise2(model.getPractise2());
+                action.setPractise3(model.getPractise3());
+                action.setPractise4(model.getPractise4());
+                action.setPractise5(model.getPractise5());
+                action.setPractise6(model.getPractise6());
+                action.setPractise7(model.getPractise7());
+                action.setPractise8(model.getPractise8());
+                action.setPractise9(model.getPractise9());
+                action.setPractise10(model.getPractise10());
+
                 action.setNote(model.getNote());
+
                 controller.navigate(action);
             }
         });

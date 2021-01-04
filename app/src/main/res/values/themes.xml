@@ -81,7 +81,7 @@
     </style>
 
     <style name="viewpager_theory_title">
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/title</item>
     </style>
 

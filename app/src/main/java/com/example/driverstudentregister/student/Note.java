@@ -53,7 +53,7 @@ public class Note extends Fragment {
     public void onStart() {
         super.onStart();
 
-        if (note.length() == 0){
+        if (note.isEmpty()){
             binding.note.setHint("Add a new note to " + name);
         }else{
             binding.note.setText(note);

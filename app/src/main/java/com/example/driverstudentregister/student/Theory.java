@@ -100,7 +100,6 @@ public class Theory extends Fragment   {
             @Override
             public void onClick(View v) {
                 datePicker.datePicker(getActivity(), binding.lecture01Date);
-                datePicker.datePicker(getActivity(), binding.lecture01Date);
             }
         });
 
