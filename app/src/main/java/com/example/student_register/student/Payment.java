@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.student;
+package com.example.student_register.student;
 
 import android.os.Bundle;
 
@@ -11,8 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.StudentPaymentBinding;
+import com.example.student_register.databinding.StudentPaymentBinding;
 
 public class Payment extends Fragment {
 

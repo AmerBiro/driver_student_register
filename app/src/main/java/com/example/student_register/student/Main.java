@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.student;
+package com.example.student_register.student;
 
 import android.os.Bundle;
 
@@ -11,12 +11,9 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.StudentMainBinding;
-import com.example.driverstudentregister.home.HomeDirections;
-import com.example.driverstudentregister.mvvm.StudentViewModel;
+import com.example.student_register.databinding.StudentMainBinding;
+import com.example.student_register.mvvm.StudentViewModel;
 
 public class Main extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.home;
+package com.example.student_register.home;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,15 +14,17 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.HomeHomeBinding;
-import com.example.driverstudentregister.mvvm.StudentAdapter;
-import com.example.driverstudentregister.mvvm.StudentModel;
+import com.example.student_register.R;
+import com.example.student_register.databinding.HomeHomeBinding;
+import com.example.student_register.mvvm.StudentAdapter;
+import com.example.student_register.mvvm.StudentModel;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -72,6 +74,21 @@ public class Home extends Fragment {
             @Override
             public void onClick(View v) {
                 controller.navigate(R.id.action_home2_to_create_Student);
+            }
+        });
+
+        binding.signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Toast.makeText(getActivity(), "Signed out", 0).show();
+                controller.navigate(R.id.action_home2_to_sign_in);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getActivity().finish();
+                    }
+                },1000);
             }
         });
 

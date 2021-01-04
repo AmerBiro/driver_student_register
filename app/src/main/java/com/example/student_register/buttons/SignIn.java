@@ -1,11 +1,11 @@
-package com.example.driverstudentregister.buttons;
+package com.example.student_register.buttons;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.driverstudentregister.R;
+import com.example.student_register.R;
 
 
 public class SignIn implements CustomButton {

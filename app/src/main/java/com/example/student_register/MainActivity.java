@@ -1,4 +1,4 @@
-package com.example.driverstudentregister;
+package com.example.student_register;
 
 import androidx.appcompat.app.AppCompatActivity;
 

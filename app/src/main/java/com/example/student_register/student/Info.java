@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.student;
+package com.example.student_register.student;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,18 +9,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.StudentInfoBinding;
-import com.example.driverstudentregister.mvvm.StudentViewModel;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.student_register.R;
+import com.example.student_register.databinding.StudentInfoBinding;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

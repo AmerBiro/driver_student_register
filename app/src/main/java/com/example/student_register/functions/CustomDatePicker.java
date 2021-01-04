@@ -1,10 +1,7 @@
-package com.example.driverstudentregister.functions;
+package com.example.student_register.functions;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.view.View;
 import android.widget.TextView;
 
 import java.util.Calendar;

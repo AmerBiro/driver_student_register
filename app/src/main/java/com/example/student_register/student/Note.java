@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.student;
+package com.example.student_register.student;
 
 import android.os.Bundle;
 
@@ -12,8 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.StudentNoteBinding;
+import com.example.student_register.databinding.StudentNoteBinding;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

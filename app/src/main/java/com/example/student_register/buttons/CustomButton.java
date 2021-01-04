@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.buttons;
+package com.example.student_register.buttons;
 
 import android.view.View;
 

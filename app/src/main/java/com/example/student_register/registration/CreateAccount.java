@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.registration;
+package com.example.student_register.registration;
 
 import android.os.Bundle;
 
@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.RegistrationCreateAccountBinding;
+import com.example.student_register.R;
+import com.example.student_register.databinding.RegistrationCreateAccountBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +27,7 @@ public class CreateAccount extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private NavController controller;
-    private com.example.driverstudentregister.buttons.CreateAccount createAccountButton;
+    private com.example.student_register.buttons.CreateAccount createAccountButton;
     private @NonNull RegistrationCreateAccountBinding binding;
     private String username;
     private String password;
@@ -45,7 +45,7 @@ public class CreateAccount extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         controller = Navigation.findNavController(view);
-        createAccountButton = new com.example.driverstudentregister.buttons.CreateAccount();
+        createAccountButton = new com.example.student_register.buttons.CreateAccount();
         createAccountButton.setView(view);
     }
 

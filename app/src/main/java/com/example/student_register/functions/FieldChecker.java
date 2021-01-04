@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.functions;
+package com.example.student_register.functions;
 
 import android.app.Activity;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.student;
+package com.example.student_register.student;
 
 import android.os.Bundle;
 
@@ -13,9 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.StudentPractiseBinding;
-import com.example.driverstudentregister.functions.CustomDatePicker;
+import com.example.student_register.databinding.StudentPractiseBinding;
+import com.example.student_register.functions.CustomDatePicker;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

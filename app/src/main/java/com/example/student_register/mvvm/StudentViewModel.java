@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.mvvm;
+package com.example.student_register.mvvm;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

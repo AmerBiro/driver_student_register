@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splash_Screen"
-        android:name="com.example.driverstudentregister.home.Splash_Screen"
+        android:name="com.example.student_register.home.Splash_Screen"
         android:label="home_splash__screen"
         tools:layout="@layout/home_splash__screen" >
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/sign_in"
-        android:name="com.example.driverstudentregister.registration.Sign_in"
+        android:name="com.example.student_register.registration.Sign_in"
         android:label="registration_sign_in"
         tools:layout="@layout/registration_sign_in" >
         <action
@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.driverstudentregister.home.Home"
+        android:name="com.example.student_register.home.Home"
         android:label="home_home"
         tools:layout="@layout/home_home" >
         <action
@@ -43,11 +43,14 @@
         <action
             android:id="@+id/action_home2_to_main"
             app:destination="@id/main" />
+        <action
+            android:id="@+id/action_home2_to_sign_in"
+            app:destination="@id/sign_in" />
     </fragment>
 
     <fragment
         android:id="@+id/create_Student"
-        android:name="com.example.driverstudentregister.home.Create_Student"
+        android:name="com.example.student_register.home.Create_Student"
         android:label="home_create__student"
         tools:layout="@layout/home_create__student" >
         <action
@@ -58,7 +61,7 @@
 
     <fragment
         android:id="@+id/createAccount"
-        android:name="com.example.driverstudentregister.registration.CreateAccount"
+        android:name="com.example.student_register.registration.CreateAccount"
         android:label="registration_create_account"
         tools:layout="@layout/registration_create_account" >
         <action
@@ -68,7 +71,7 @@
 
     <fragment
         android:id="@+id/student_info"
-        android:name="com.example.driverstudentregister.student.Info"
+        android:name="com.example.student_register.student.Info"
         android:label="student_info"
         tools:layout="@layout/student_info" >
 
@@ -119,7 +122,7 @@
 
     <fragment
         android:id="@+id/main"
-        android:name="com.example.driverstudentregister.student.Main"
+        android:name="com.example.student_register.student.Main"
         android:label="student_main"
         tools:layout="@layout/student_main" >
         <action
@@ -258,7 +261,7 @@
 
     <fragment
         android:id="@+id/payment2"
-        android:name="com.example.driverstudentregister.student.Payment"
+        android:name="com.example.student_register.student.Payment"
         android:label="student_payment"
         tools:layout="@layout/student_payment" >
         <action
@@ -280,7 +283,7 @@
 
     <fragment
         android:id="@+id/theory2"
-        android:name="com.example.driverstudentregister.student.Theory"
+        android:name="com.example.student_register.student.Theory"
         android:label="student_theory"
         tools:layout="@layout/student_theory" >
         <action
@@ -327,7 +330,7 @@
 
     <fragment
         android:id="@+id/practise2"
-        android:name="com.example.driverstudentregister.student.Practise"
+        android:name="com.example.student_register.student.Practise"
         android:label="student_practise"
         tools:layout="@layout/student_practise" >
         <action
@@ -382,7 +385,7 @@
 
     <fragment
         android:id="@+id/note2"
-        android:name="com.example.driverstudentregister.student.Note"
+        android:name="com.example.student_register.student.Note"
         android:label="student_note"
         tools:layout="@layout/student_note" >
         <argument

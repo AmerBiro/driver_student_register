@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.home;
+package com.example.student_register.home;
 
 import android.os.Bundle;
 
@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.HomeSplashScreenBinding;
+import com.example.student_register.R;
+import com.example.student_register.databinding.HomeSplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

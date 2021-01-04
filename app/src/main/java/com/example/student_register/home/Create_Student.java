@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.home;
+package com.example.student_register.home;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -12,14 +12,10 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.HomeCreateStudentBinding;
-import com.example.driverstudentregister.functions.FieldChecker;
-import com.example.driverstudentregister.mvvm.CreateStudent;
-import com.google.common.collect.MapMaker;
+import com.example.student_register.R;
+import com.example.student_register.databinding.HomeCreateStudentBinding;
+import com.example.student_register.mvvm.CreateStudent;
 
 import java.text.SimpleDateFormat;
 

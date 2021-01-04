@@ -1,4 +1,4 @@
-package com.example.driverstudentregister.registration;
+package com.example.student_register.registration;
 
 import android.os.Bundle;
 
@@ -14,9 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.driverstudentregister.R;
-import com.example.driverstudentregister.databinding.RegistrationSignInBinding;
-import com.example.driverstudentregister.buttons.SignIn;
+import com.example.student_register.R;
+import com.example.student_register.databinding.RegistrationSignInBinding;
+import com.example.student_register.buttons.SignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

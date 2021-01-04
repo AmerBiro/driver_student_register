@@ -13,7 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="NA"
+        android:hint="Add a new note"
         style="@style/viewpager_theory_title"
         android:inputType="textMultiLine"
         android:textAlignment="textStart"
