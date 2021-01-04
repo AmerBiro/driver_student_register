@@ -188,7 +188,23 @@
         android:id="@+id/payment2"
         android:name="com.example.driverstudentregister.student.Payment"
         android:label="student_payment"
-        tools:layout="@layout/student_payment" />
+        tools:layout="@layout/student_payment" >
+        <action
+            android:id="@+id/action_payment2_to_main"
+            app:destination="@id/main" />
+        <argument
+            android:name="price"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="discount"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
+            android:name="studentId"
+            app:argType="string"
+            android:defaultValue="NA" />
+    </fragment>
     <fragment
         android:id="@+id/theory2"
         android:name="com.example.driverstudentregister.student.Theory"

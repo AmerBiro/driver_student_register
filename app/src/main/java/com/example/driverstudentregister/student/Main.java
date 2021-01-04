@@ -75,7 +75,11 @@ public class Main extends Fragment {
         binding.payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.navigate(R.id.action_main_to_payment2);
+                MainDirections.ActionMainToPayment2 action = MainDirections.actionMainToPayment2();
+                action.setStudentId(studentId);
+                action.setPrice(price);
+                action.setDiscount(discount);
+                controller.navigate(action);
             }
         });
 
