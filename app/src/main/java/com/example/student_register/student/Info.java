@@ -38,7 +38,7 @@ public class Info extends Fragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = StudentInfoBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        binding.name.setEnabled(false);
+//        binding.name.setEnabled(false);
         return view;
     }
 
@@ -93,17 +93,17 @@ public class Info extends Fragment {
 
                 InfoDirections.ActionStudentInfoToMain3 action = InfoDirections.actionStudentInfoToMain3();
                 action.setName(binding.name.getText().toString());
-                action.setPhone(phone);
-                action.setStreet(street);
-                action.setZipCode(zip_code);
-                action.setCity(city);
-                action.setCpr(cpr);
+                action.setPhone(binding.phone.getText().toString());
+                action.setStreet(binding.street.getText().toString());
+                action.setZipCode(binding.zipCode.getText().toString());
+                action.setCity(binding.city.getText().toString());
+                action.setCpr(binding.cpr.getText().toString());
                 action.setStudentId(studentId);
-                action.setPrice(price);
-                action.setDiscount(discount);
+                action.setPrice(binding.price.getText().toString());
+                action.setDiscount(binding.discount.getText().toString());
                 controller.navigate(action);
-//                controller.navigateUp();
-//                controller.popBackStack();
+                controller.navigateUp();
+                controller.popBackStack();
             }
         });
 

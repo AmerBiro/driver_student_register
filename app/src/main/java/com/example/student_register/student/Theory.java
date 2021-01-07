@@ -27,7 +27,7 @@ public class Theory extends Fragment   {
 
     private @NonNull
     StudentTheoryBinding binding;
-    private String lecture1, lecture2, lecture3, lecture4, lecture5, lecture6, lecture7, lecture8;
+    private String lecture1, lecture2, lecture3, lecture4, lecture5, lecture6, lecture7, lecture8, name;
     private String[] date;
     private TextView[] dateTextView;
     private CustomDatePicker datePicker;
@@ -54,6 +54,7 @@ public class Theory extends Fragment   {
         userId = firebaseUser.getUid();
         studentId = TheoryArgs.fromBundle(getArguments()).getStudentId();
         datePicker = new CustomDatePicker();
+        name = TheoryArgs.fromBundle(getArguments()).getName();
         date = new String[8];
         dateTextView = new TextView[8];
         date[0] = TheoryArgs.fromBundle(getArguments()).getLecture1();
@@ -172,6 +173,7 @@ public class Theory extends Fragment   {
 
         TheoryDirections.ActionTheory2ToMain action = TheoryDirections.actionTheory2ToMain();
         action.setStudentId(studentId);
+        action.setName(name);
         action.setLecture1(dateTextView[0].getText().toString());
         action.setLecture2(dateTextView[1].getText().toString());
         action.setLecture3(dateTextView[2].getText().toString());

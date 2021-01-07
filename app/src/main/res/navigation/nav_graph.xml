@@ -294,6 +294,10 @@
             app:argType="string"
             android:defaultValue="NA" />
         <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="NA" />
+        <argument
             android:name="lecture1"
             app:argType="string"
             android:defaultValue="NA" />

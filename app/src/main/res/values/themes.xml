@@ -22,7 +22,7 @@
 
 
     <style name="app_title">
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/title</item>
     </style>
 
@@ -32,7 +32,7 @@
     </style>
 
     <style name="title">
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/title</item>
     </style>
 
