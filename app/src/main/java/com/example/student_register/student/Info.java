@@ -102,8 +102,8 @@ public class Info extends Fragment {
                 action.setPrice(price);
                 action.setDiscount(discount);
                 controller.navigate(action);
-                controller.navigateUp();
-                controller.popBackStack();
+//                controller.navigateUp();
+//                controller.popBackStack();
             }
         });
 

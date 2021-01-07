@@ -1,19 +1,23 @@
 package com.example.student_register.mvvm;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.student_register.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 
 public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, StudentAdapter.StudentViewHolder> {
@@ -29,6 +33,7 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
     protected void onBindViewHolder(@NonNull StudentViewHolder holder, int position, @NonNull StudentModel model) {
         holder.name.setText(model.getName());
         holder.date.setText(model.getDate());
+
     }
 
     @NonNull
@@ -62,6 +67,16 @@ public class StudentAdapter extends FirestoreRecyclerAdapter <StudentModel, Stud
 
     public void deleteItem(int position){
         getSnapshots().getSnapshot(position).getReference().delete();
+    }
+
+    public String getName(int position){
+        getSnapshots().getSnapshot(position).getReference().addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                name = value.getString("name");
+            }
+        });
+        return name;
     }
 
     public interface OnItemClickedListener {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353804511032",
+    "project_id": "driver-student-register",
+    "storage_bucket": "driver-student-register.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353804511032:android:33d9cb4e0d730312afc3cd",
+        "android_client_info": {
+          "package_name": "com.example.driverstudentregister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353804511032-qe9am9hburesehrlbvkv2senq91tlf5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmKZTTXH2dUp8r2IKWhy1u8IMI-Sz-1yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353804511032-qe9am9hburesehrlbvkv2senq91tlf5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
