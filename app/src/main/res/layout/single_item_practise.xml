@@ -7,7 +7,7 @@
     >
 
     <EditText
-        android:id="@+id/single_item_theory_title"
+        android:id="@+id/single_item_practise_title"
         style="@style/viewpager_payment_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,14 +25,14 @@
         >
 
         <Button
-            android:id="@+id/select_date"
+            android:id="@+id/practise_select_date"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@drawable/ic_baseline_date_range_24"
             />
 
         <EditText
-            android:id="@+id/single_item_theory_date"
+            android:id="@+id/single_item_practise_date"
             style="@style/viewpager_payment_item"
             android:enabled="false"
             android:layout_width="match_parent"

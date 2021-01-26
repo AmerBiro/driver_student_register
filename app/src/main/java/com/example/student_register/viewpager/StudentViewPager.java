@@ -73,15 +73,17 @@ public class StudentViewPager extends Fragment {
         adapter = new StudentViewPagerAdapter(getChildFragmentManager(), 0);
 
         adapter.addFragment(info, "Info");
-        adapter.addFragment(payment, "Payment");
         adapter.addFragment(theory, "Theory");
+        adapter.addFragment(payment, "Payment");
         adapter.addFragment(practise, "Practise");
         adapter.addFragment(note, "Note");
         viewPager.setAdapter(adapter);
 
+        viewPager.setCurrentItem(2);
+
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_info_24);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_payment_24);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_menu_book_24);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_menu_book_24);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_payment_24);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_directions_car_24);
         tabLayout.getTabAt(4).setIcon(R.drawable.ic_baseline_note_24);
 

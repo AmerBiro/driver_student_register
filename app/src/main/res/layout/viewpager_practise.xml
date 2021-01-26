@@ -3,12 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp"
-    android:orientation="vertical"
-    tools:context=".viewpager.Practise"
     android:gravity="center|top|left"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".viewpager.Practise"
     >
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

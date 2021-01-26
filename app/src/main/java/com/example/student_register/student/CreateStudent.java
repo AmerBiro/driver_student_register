@@ -117,6 +117,22 @@ public class CreateStudent {
                     theory.put("number", i);
                     theoryRef.add(theory);
                 }
+
+
+
+                CollectionReference practiseRef = FirebaseFirestore.getInstance()
+                        .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .collection("student").document(studentId)
+                        .collection("practise");
+
+                HashMap<String, Object> practise = new HashMap<>();
+                practise.put("title", "Practise");
+
+                for (int i = 0; i<10; i++){
+                    practise.put("number", i);
+                    practiseRef.add(practise);
+                }
+
                 progressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(activity, "Student created successfully", 0).show();
                 controller.navigate(action);

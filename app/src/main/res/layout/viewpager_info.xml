@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 style="@style/viewpager_info_field"
+                android:enabled="false"
                 android:ems="15"
                 android:hint="@string/student_name"
                 />
@@ -90,6 +91,7 @@
                 android:inputType="number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 style="@style/viewpager_info_field"
                 android:ems="15"
                 android:hint="Price: 13500 DKK"
@@ -98,6 +100,7 @@
 
             <EditText
                 android:id="@+id/discount"
+                android:visibility="invisible"
                 android:inputType="number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
