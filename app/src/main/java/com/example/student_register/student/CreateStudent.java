@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,6 +33,8 @@ public class CreateStudent {
     private String note;
     private int phone, zip_code, cpr;
     private int price, discount;
+    private String studentId;
+    private int i;
 
     private Activity activity;
     private NavController controller;
@@ -100,11 +103,26 @@ public class CreateStudent {
         studentRef.add(student).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
+                studentId = documentReference.getId();
+
+                CollectionReference theoryRef = FirebaseFirestore.getInstance()
+                        .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .collection("student").document(studentId)
+                        .collection("theory");
+
+                HashMap<String, Object> theory = new HashMap<>();
+                theory.put("title", "Lecture");
+
+                for (int i = 0; i<8; i++){
+                    theory.put("number", i);
+                    theoryRef.add(theory);
+                }
                 progressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(activity, "Student created successfully", 0).show();
                 controller.navigate(action);
                 controller.navigateUp();
                 controller.popBackStack();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

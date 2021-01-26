@@ -12,10 +12,16 @@
         tools:layout="@layout/registration_splash__screen" >
         <action
             android:id="@+id/action_splash_Screen_to_sign_in"
-            app:destination="@id/sign_in" />
+            app:destination="@id/sign_in"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/splash_Screen"
+            />
         <action
             android:id="@+id/action_splash_Screen_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/splash_Screen"
+            />
     </fragment>
 
 
@@ -26,7 +32,10 @@
         tools:layout="@layout/registration_registration" >
         <action
             android:id="@+id/action_sign_in_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/sign_in"
+            />
         <action
             android:id="@+id/action_sign_in_to_createAccount"
             app:destination="@id/createAccount" />
@@ -51,8 +60,9 @@
         android:label="home_create__student"
         tools:layout="@layout/home_create_student" >
         <action
-            android:id="@+id/action_create_Student_to_home2"
-            app:destination="@id/home2" />
+            android:id="@+id/action_create_Student_to_home"
+            app:destination="@id/home2"
+            />
     </fragment>
 
 

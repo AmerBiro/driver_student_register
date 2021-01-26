@@ -65,6 +65,8 @@ public class StudentViewPager extends Fragment {
 
         info.getPosition(position);
         payment.getPosition(position);
+        note.getPosition(position);
+        theory.getPosition(position);
     }
 
     private void viewpagerSetup(View view){

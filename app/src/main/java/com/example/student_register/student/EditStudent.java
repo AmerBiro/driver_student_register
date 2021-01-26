@@ -93,10 +93,11 @@ public class EditStudent {
             @Override
             public void onSuccess(Void aVoid) {
                 progressBar.setVisibility(View.INVISIBLE);
+                button.setVisibility(View.VISIBLE);
                 Toast.makeText(activity, "Updating student successfully", 0).show();
-                controller.navigate(action);
-                controller.navigateUp();
-                controller.popBackStack();
+//                controller.navigate(action);
+//                controller.navigateUp();
+//                controller.popBackStack();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
