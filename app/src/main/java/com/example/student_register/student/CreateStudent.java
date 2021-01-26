@@ -1,6 +1,7 @@
 package com.example.student_register.student;
 
 import android.app.Activity;
+import android.icu.util.Calendar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,12 +20,15 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class CreateStudent {
 
-    private String name, street, city, date;
+    private String name, street, city;
     private String note;
     private int phone, zip_code, cpr;
     private int price, discount;
@@ -40,7 +44,7 @@ public class CreateStudent {
         this.controller = Navigation.findNavController(this.view);
     }
 
-    public void create(EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount, EditText note, String date,
+    public void create(EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount, EditText note,
                        Button button, ProgressBar progressBar,
                        int action) {
         button.setVisibility(View.INVISIBLE);
@@ -50,13 +54,15 @@ public class CreateStudent {
         this.name = name.getText().toString();
         this.street = street.getText().toString();
         this.city = city.getText().toString();
-        this.date = date;
         this.note = note.getText().toString();
 
         student.put("name", this.name);
         student.put("street", this.street);
         student.put("city", this.city);
-        student.put("date", this.date);
+
+        Date currentTime = Calendar.getInstance().getTime();
+
+        student.put("date", currentTime);
         student.put("note", this.note);
 
         if (!phone.getText().toString().trim().isEmpty()) {

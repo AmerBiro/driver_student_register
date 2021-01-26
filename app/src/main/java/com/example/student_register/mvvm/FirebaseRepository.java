@@ -2,14 +2,10 @@ package com.example.student_register.mvvm;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.student_register.mvvm.model.StudentModel;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -23,14 +19,13 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 
 public class FirebaseRepository {
 
-
     private OnFirestoreTaskComplete onFirestoreTaskComplete;
 
     private String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Query studentRef = FirebaseFirestore.getInstance()
             .collection("user").document(userId)
             .collection("student")
-            .orderBy("name");
+            .orderBy("date");
 
     public FirebaseRepository(OnFirestoreTaskComplete onFirestoreTaskComplete) {
         this.onFirestoreTaskComplete = onFirestoreTaskComplete;

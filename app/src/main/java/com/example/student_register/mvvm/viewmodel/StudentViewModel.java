@@ -1,8 +1,11 @@
-package com.example.student_register.mvvm;
+package com.example.student_register.mvvm.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.student_register.mvvm.FirebaseRepository;
+import com.example.student_register.mvvm.model.StudentModel;
 
 import java.util.List;
 

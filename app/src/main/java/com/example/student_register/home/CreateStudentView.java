@@ -68,7 +68,6 @@ public class CreateStudentView extends Fragment implements View.OnClickListener 
                     binding.cpr,
                     binding.price, binding.discount,
                     binding.note,
-                    "",
                     binding.createButton, binding.progressBar,
                     R.id.action_create_Student_to_home2
             );

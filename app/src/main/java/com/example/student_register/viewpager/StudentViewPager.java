@@ -61,9 +61,10 @@ public class StudentViewPager extends Fragment {
         viewpagerSetup(view);
 
         position = StudentViewPagerArgs.fromBundle(getArguments()).getPosition();
-//        Log.d(TAG, "onViewCreated: " + position);
+        Log.d(TAG, "onViewCreated: " + "ViewPager: " +  position);
 
         info.getPosition(position);
+        payment.getPosition(position);
     }
 
     private void viewpagerSetup(View view){

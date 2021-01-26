@@ -1,21 +1,20 @@
-package com.example.student_register.mvvm;
+package com.example.student_register.mvvm.model;
 
 import com.google.firebase.firestore.DocumentId;
+
+import java.util.Date;
 
 public class StudentModel {
 
     @DocumentId
     private String studentId;
-    private String name, street, city, date;
+    private String name, street, city;
+    private Date date;
     private String note;
     private int phone, zip_code, cpr;
     private int price, discount;
 
-    public StudentModel() {
-
-    }
-
-    public StudentModel(String studentId, String name, String street, String city, String date, String note, int phone, int zip_code, int cpr, int price, int discount) {
+    public StudentModel(String studentId, String name, String street, String city, Date date, String note, int phone, int zip_code, int cpr, int price, int discount) {
         this.studentId = studentId;
         this.name = name;
         this.street = street;
@@ -27,6 +26,10 @@ public class StudentModel {
         this.cpr = cpr;
         this.price = price;
         this.discount = discount;
+    }
+
+    public StudentModel() {
+
     }
 
     public String getStudentId() {
@@ -61,11 +64,11 @@ public class StudentModel {
         this.city = city;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

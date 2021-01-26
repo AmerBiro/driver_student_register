@@ -1,4 +1,4 @@
-package com.example.student_register.mvvm;
+package com.example.student_register.mvvm.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.student_register.R;
+import com.example.student_register.mvvm.model.StudentModel;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
         holder.single_item_name.setText(studentModels.get(position).getName());
+        holder.single_item_date.setText(studentModels.get(position).getDate().toString());
     }
 
     @Override
@@ -50,10 +52,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     public class StudentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView single_item_name;
+        private TextView single_item_date;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             single_item_name = itemView.findViewById(R.id.single_item_name);
+            single_item_date = itemView.findViewById(R.id.single_item_date);
             itemView.setOnClickListener(this);
         }
 

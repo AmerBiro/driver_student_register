@@ -29,5 +29,17 @@
         android:textColor="@color/white"
         />
 
+    <TextView
+        android:id="@+id/single_item_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/student_item_name"
+        style="@style/item"
+        android:textSize="17sp"
+        android:layout_marginTop="4dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        />
+
 
 </LinearLayout>

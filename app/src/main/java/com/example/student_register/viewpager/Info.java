@@ -2,8 +2,8 @@ package com.example.student_register.viewpager;
 
 import com.example.student_register.R;
 import com.example.student_register.databinding.ViewpagerInfoBinding;
-import com.example.student_register.mvvm.StudentModel;
-import com.example.student_register.mvvm.StudentViewModel;
+import com.example.student_register.mvvm.model.StudentModel;
+import com.example.student_register.mvvm.viewmodel.StudentViewModel;
 import com.example.student_register.student.EditStudent;
 
 import android.os.Bundle;
@@ -101,7 +101,7 @@ public class Info extends Fragment implements View.OnClickListener {
 
     public void getPosition(int position){
         getAdapterPosition = position;
-        Log.d(TAG, "onViewCreated: " + getAdapterPosition);
+        Log.d(TAG, "onViewCreated: " + "Info: " +  getAdapterPosition);
     }
 
     private void updateStudent(){
@@ -115,7 +115,6 @@ public class Info extends Fragment implements View.OnClickListener {
                     binding.street, binding.zipCode, binding.city,
                     binding.cpr,
                     binding.price, binding.discount,
-                    "",
                     binding.updateButton, binding.progressBar,
                     R.id.action_studentViewPager_to_home2
             );

@@ -16,17 +16,15 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.student_register.R;
 import com.example.student_register.databinding.HomeHomeBinding;
-import com.example.student_register.mvvm.StudentAdapter;
-import com.example.student_register.mvvm.StudentModel;
-import com.example.student_register.mvvm.StudentViewModel;
-import com.example.student_register.student.DeleteStudent;
+import com.example.student_register.mvvm.adapter.StudentAdapter;
+import com.example.student_register.mvvm.model.StudentModel;
+import com.example.student_register.mvvm.viewmodel.StudentViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

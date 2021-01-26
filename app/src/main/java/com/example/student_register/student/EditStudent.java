@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class EditStudent {
 
-    private String name, street, city, date;
+    private String name, street, city;
     private int phone, zip_code, cpr;
     private int price, discount;
 
@@ -36,7 +36,7 @@ public class EditStudent {
         this.controller = Navigation.findNavController(this.view);
     }
 
-    public void editStudent(String studentId, EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount, String date,
+    public void editStudent(String studentId, EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount,
                        Button button, ProgressBar progressBar,
                        int action) {
         button.setVisibility(View.INVISIBLE);
@@ -46,12 +46,10 @@ public class EditStudent {
         this.name = name.getText().toString();
         this.street = street.getText().toString();
         this.city = city.getText().toString();
-        this.date = date;
 
         student.put("name", this.name);
         student.put("street", this.street);
         student.put("city", this.city);
-        student.put("date", this.date);
 
         if (!phone.getText().toString().trim().isEmpty()) {
             this.phone = Integer.parseInt(phone.getText().toString());
