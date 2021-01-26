@@ -55,7 +55,7 @@ public class CreateAccount extends Fragment {
                 Toast.makeText(getActivity(), "username or password cannot be empty", 1).show();
                 return;
             }else{
-                createAccountButton.onClick("Please wait ...");
+                createAccountButton.onClick("Please wait");
                 new Handler().postDelayed(() -> FirebaseAuth.getInstance().createUserWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {

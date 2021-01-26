@@ -61,7 +61,7 @@ public class Registration extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "username or password cannot be empty", 1).show();
                 return;
             } else {
-                signInButton.onClick("Please wait ...");
+                signInButton.onClick("Please wait");
                 new Handler().postDelayed(() -> FirebaseAuth.getInstance().signInWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {

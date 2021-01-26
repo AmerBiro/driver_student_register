@@ -40,10 +40,13 @@ public class FirebaseRepository {
                 onFirestoreTaskComplete.studentDataAdded(studentModels);
             }
         });
+
+
     }
 
-    public interface OnFirestoreTaskComplete{
+    public interface OnFirestoreTaskComplete {
         void studentDataAdded(List<StudentModel> studentModels);
+
         void onError(Exception e);
     }
 

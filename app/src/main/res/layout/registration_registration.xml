@@ -68,6 +68,7 @@
         android:textColor="@color/button"
         style="@style/forgot_password"
         android:layout_marginTop="35dp"
+        android:visibility="invisible"
         />
     
 

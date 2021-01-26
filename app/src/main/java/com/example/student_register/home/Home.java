@@ -78,6 +78,7 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
     public void onStart() {
         super.onStart();
         binding.floatingButton.setOnClickListener(this);
+        binding.signOut.setOnClickListener(this);
     }
 
     private void recyclerViewSetup() {
@@ -143,6 +144,11 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
         switch (v.getId()){
             case R.id.floating_button:
                 controller.navigate(R.id.action_home2_to_create_Student);
+                break;
+            case R.id.sign_out:
+                FirebaseAuth.getInstance().signOut();
+                controller.navigate(R.id.action_home2_to_sign_in);
+                getActivity().finish();
                 break;
             default:
         }
