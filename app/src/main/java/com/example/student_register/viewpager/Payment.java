@@ -1,12 +1,14 @@
 package com.example.student_register.viewpager;
 
 
+import com.example.student_register.R;
 import com.example.student_register.databinding.ViewpagerPaymentBinding;
 import com.example.student_register.mvvm.adapter.PaymentAdapter;
 import com.example.student_register.mvvm.adapter.StudentAdapter;
 import com.example.student_register.mvvm.model.PaymentModel;
 import com.example.student_register.mvvm.model.StudentModel;
 import com.example.student_register.mvvm.viewmodel.StudentViewModel;
+import com.example.student_register.student.AddPayment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
@@ -16,6 +18,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -41,7 +44,7 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 
-public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemClicked {
+public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemClicked, View.OnClickListener {
 
     private @NonNull
     ViewpagerPaymentBinding
@@ -53,6 +56,8 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
     private PaymentAdapter adapter;
     private RecyclerView recyclerView;
     private String studentId;
+    private AddPayment addPayment;
+    private int packagePrice, totalPrice, discount, payments;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +70,10 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
+        binding.price.setEnabled(false);
+        binding.discount.setEnabled(false);
+        binding.totalPrice.setEnabled(false);
+        addPayment = new AddPayment();
         recyclerViewSetup();
     }
 
@@ -77,12 +86,6 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
             @Override
             public void onChanged(List<StudentModel> studentModels) {
                 studentId = studentModels.get(getAdapterPosition).getStudentId();
-                int price, discount;
-                price = studentModels.get(getAdapterPosition).getPrice();
-                discount = studentModels.get(getAdapterPosition).getDiscount();
-
-                binding.price.setText(price + " DKK");
-                binding.discount.setText(discount + " DKK");
 
                 Query paymentRef = FirebaseFirestore.getInstance()
                         .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -95,17 +98,25 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
                         adapter.setPaymentModels(paymentModels);
                         adapter.notifyDataSetChanged();
 
-                        int total = 0;
+                        packagePrice = studentModels.get(getAdapterPosition).getPrice();
+                        discount = studentModels.get(getAdapterPosition).getDiscount();
+                        payments = 0;
                         for (int i = 0; i < paymentModels.size(); i++) {
-                            total = total + paymentModels.get(i).getPayment();
+                            payments = payments + paymentModels.get(i).getPayment();
                         }
-                        Log.d(TAG, "onEvent: " + total);
-                        binding.totalPrice.setText((price - discount - total) + " DKK");
 
+                        binding.price.setText(packagePrice + " DKK");
+                        binding.discount.setText(discount + " DKK");
+
+                        totalPrice = packagePrice - payments - discount;
+                        binding.totalPrice.setText(totalPrice + " DKK");
+                        if (totalPrice > 0){
+                            binding.totalPrice.setTextColor(Color.RED);
+                        }else{
+                            binding.totalPrice.setTextColor(Color.GREEN);
+                        }
                     }
                 });
-
-
             }
         });
     }
@@ -113,6 +124,7 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
     @Override
     public void onStart() {
         super.onStart();
+        binding.floatingButtonPayment.setOnClickListener(this);
     }
 
     public void getPosition(int position) {
@@ -134,4 +146,16 @@ public class Payment extends Fragment implements PaymentAdapter.OnPaymentItemCli
     public void onItemClicked(int position) {
 
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.floating_button_payment:
+                Log.d(TAG, "onClick: " + studentId + ", " + totalPrice);
+                addPayment.addSinglePayment(getActivity(), studentId, totalPrice);
+                break;
+            default:
+        }
+    }
+
 }

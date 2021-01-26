@@ -12,6 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
+        android:enabled="false"
+        android:textStyle="bold"
         android:backgroundTint="@color/white"
         android:hint="NA"
         android:inputType="text"
