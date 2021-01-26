@@ -21,8 +21,8 @@ public class StudentViewModel extends ViewModel implements FirebaseRepository.On
     }
 
     @Override
-    public void studentDataAdded(List<StudentModel> programListModels) {
-        studentModelData.setValue(programListModels);
+    public void studentDataAdded(List<StudentModel> studentModels) {
+        studentModelData.setValue(studentModels);
     }
 
     @Override

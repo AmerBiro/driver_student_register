@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/splash_Screen"
-        android:name="com.example.student_register.home.Splash_Screen"
+        android:name="com.example.student_register.registration.SplashScreen"
         android:label="home_splash__screen"
-        tools:layout="@layout/home_splash__screen" >
+        tools:layout="@layout/registration_splash__screen" >
         <action
             android:id="@+id/action_splash_Screen_to_sign_in"
             app:destination="@id/sign_in" />
@@ -21,9 +21,9 @@
 
     <fragment
         android:id="@+id/sign_in"
-        android:name="com.example.student_register.registration.Sign_in"
+        android:name="com.example.student_register.registration.Registration"
         android:label="registration_sign_in"
-        tools:layout="@layout/registration_sign_in" >
+        tools:layout="@layout/registration_registration" >
         <action
             android:id="@+id/action_sign_in_to_home2"
             app:destination="@id/home2" />
@@ -41,18 +41,15 @@
             android:id="@+id/action_home2_to_create_Student"
             app:destination="@id/create_Student" />
         <action
-            android:id="@+id/action_home2_to_main"
-            app:destination="@id/main" />
-        <action
-            android:id="@+id/action_home2_to_sign_in"
-            app:destination="@id/sign_in" />
+            android:id="@+id/action_home2_to_studentViewPager"
+            app:destination="@id/studentViewPager" />
     </fragment>
 
     <fragment
         android:id="@+id/create_Student"
-        android:name="com.example.student_register.home.Create_Student"
+        android:name="com.example.student_register.home.CreateStudentView"
         android:label="home_create__student"
-        tools:layout="@layout/home_create__student" >
+        tools:layout="@layout/home_create_student" >
         <action
             android:id="@+id/action_create_Student_to_home2"
             app:destination="@id/home2" />
@@ -69,344 +66,19 @@
             app:destination="@id/home2" />
     </fragment>
 
-    <fragment
-        android:id="@+id/student_info"
-        android:name="com.example.student_register.student.Info"
-        android:label="student_info"
-        tools:layout="@layout/student_info" >
 
+    <fragment
+        android:id="@+id/studentViewPager"
+        android:name="com.example.student_register.viewpager.StudentViewPager"
+        android:label="student_student_view_pager"
+        tools:layout="@layout/viewpager_student_view_pager" >
+        <action
+            android:id="@+id/action_studentViewPager_to_home2"
+            app:destination="@id/home2" />
         <argument
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="phone"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="street"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="zip_code"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="city"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="cpr"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <action
-            android:id="@+id/action_student_info_to_main3"
-            app:destination="@id/main" />
-        <action
-            android:id="@+id/action_student_info_to_home27"
-            app:destination="@id/home2" />
-        <argument
-            android:name="price"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="discount"
-            app:argType="string"
-            android:defaultValue="NA" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/main"
-        android:name="com.example.student_register.student.Main"
-        android:label="student_main"
-        tools:layout="@layout/student_main" >
-        <action
-            android:id="@+id/action_main_to_view_pager_info"
-            app:destination="@id/student_info" />
-        <action
-            android:id="@+id/action_main_to_payment2"
-            app:destination="@id/payment2" />
-        <action
-            android:id="@+id/action_main_to_theory2"
-            app:destination="@id/theory2" />
-        <action
-            android:id="@+id/action_main_to_practise2"
-            app:destination="@id/practise2" />
-        <action
-            android:id="@+id/action_main_to_note2"
-            app:destination="@id/note2" />
-        <argument
-            android:name="position"
-            app:argType="integer"
-            android:defaultValue="0" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="phone"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="street"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="zip_code"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument android:name="city"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="cpr"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <action
-            android:id="@+id/action_main_to_home2"
-            app:destination="@id/home2" />
-        <argument
-            android:name="price"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="discount"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="note"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture1"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture2"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture3"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture4"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture5"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture6"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture7"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture8"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise1"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise2"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise3"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise4"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise5"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise6"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise7"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise8"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise9"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise10"
-            app:argType="string"
-            android:defaultValue="NA" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/payment2"
-        android:name="com.example.student_register.student.Payment"
-        android:label="student_payment"
-        tools:layout="@layout/student_payment" >
-        <action
-            android:id="@+id/action_payment2_to_main"
-            app:destination="@id/main" />
-        <argument
-            android:name="price"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="discount"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/theory2"
-        android:name="com.example.student_register.student.Theory"
-        android:label="student_theory"
-        tools:layout="@layout/student_theory" >
-        <action
-            android:id="@+id/action_theory2_to_main"
-            app:destination="@id/main" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture1"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture2"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture3"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture4"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture5"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture6"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture7"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="lecture8"
-            app:argType="string"
-            android:defaultValue="NA" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/practise2"
-        android:name="com.example.student_register.student.Practise"
-        android:label="student_practise"
-        tools:layout="@layout/student_practise" >
-        <action
-            android:id="@+id/action_practise2_to_main"
-            app:destination="@id/main" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise1"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise2"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise3"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise4"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise5"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise6"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise7"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise8"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise9"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="practise10"
-            app:argType="string"
-            android:defaultValue="NA" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/note2"
-        android:name="com.example.student_register.student.Note"
-        android:label="student_note"
-        tools:layout="@layout/student_note" >
-        <argument
-            android:name="note"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <argument
-            android:name="studentId"
-            app:argType="string"
-            android:defaultValue="NA" />
-        <action
-            android:id="@+id/action_note2_to_main"
-            app:destination="@id/main" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="NA" />
     </fragment>
 
 

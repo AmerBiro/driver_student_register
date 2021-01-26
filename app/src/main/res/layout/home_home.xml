@@ -7,7 +7,6 @@
     tools:context=".home.Home"
     >
 
-
     <TextView
         android:id="@+id/home"
         android:layout_width="wrap_content"
@@ -41,8 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="110dp"
-        android:paddingBottom="50dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="85dp"
         >
     </androidx.recyclerview.widget.RecyclerView>
 

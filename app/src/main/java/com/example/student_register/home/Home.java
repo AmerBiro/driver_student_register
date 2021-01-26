@@ -1,54 +1,55 @@
 package com.example.student_register.home;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.student_register.R;
 import com.example.student_register.databinding.HomeHomeBinding;
 import com.example.student_register.mvvm.StudentAdapter;
 import com.example.student_register.mvvm.StudentModel;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.example.student_register.mvvm.StudentViewModel;
+import com.example.student_register.student.DeleteStudent;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class Home extends Fragment {
 
-    private @NonNull HomeHomeBinding binding;
+public class Home extends Fragment implements StudentAdapter.OnStudentItemClicked, View.OnClickListener {
 
+    private @NonNull
+    HomeHomeBinding
+     binding;
     private NavController controller;
-    private RecyclerView recyclerView;
-    private StudentAdapter adapter;
 
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
-    private FirebaseFirestore firestore;
-    private CollectionReference student;
+    private StudentViewModel studentViewModel;
+    private List<StudentModel> studentModels2 = new ArrayList<>();
+    private StudentAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = HomeHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
@@ -58,64 +59,34 @@ public class Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
+        recyclerViewSetup();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        studentViewModel = new ViewModelProvider(getActivity()).get(StudentViewModel.class);
+        studentViewModel.getStudentModelData().observe(getViewLifecycleOwner(), new Observer<List<StudentModel>>() {
+            @Override
+            public void onChanged(List<StudentModel> studentModels) {
+                studentModels2 = studentModels;
+                adapter.setStudentModels(studentModels);
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
-        firestore = FirebaseFirestore.getInstance();
-        AdapterSetup();
-        RecyclerViewSetUp();
-        adapter.startListening();
-
-        binding.floatingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.navigate(R.id.action_home2_to_create_Student);
-            }
-        });
-
-        binding.signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                Toast.makeText(getActivity(), "Signed out", 0).show();
-                controller.navigate(R.id.action_home2_to_sign_in);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getActivity().finish();
-                    }
-                },1000);
-            }
-        });
-
+        binding.floatingButton.setOnClickListener(this);
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
-
-
-    private void AdapterSetup() {
-
-        student = firestore.collection("user").document(user.getUid())
-                .collection("student");
-        Query query = student.orderBy("name", Query.Direction.DESCENDING);
-        FirestoreRecyclerOptions<StudentModel> options = new FirestoreRecyclerOptions.Builder<StudentModel>()
-                .setQuery(query, StudentModel.class)
-                .build();
-        adapter = new StudentAdapter(options);
-    }
-
-    private void RecyclerViewSetUp() {
+    private void recyclerViewSetup() {
         recyclerView = binding.recyclerview;
-        recyclerView.setHasFixedSize(true);
+        adapter = new StudentAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
@@ -127,13 +98,18 @@ public class Home extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Delete student");
-                builder.setMessage("Are you sure that you want to delete the following student")
-                        .setCancelable(false)
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Delete Student");
+                builder.setMessage("Are you sure that you want to delete the student " +
+                        studentModels2.get(viewHolder.getAdapterPosition()).getName() +
+                        "?\n")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                adapter.deleteItem(viewHolder.getAdapterPosition());
+                                DocumentReference studentRef = FirebaseFirestore.getInstance()
+                                        .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .collection("student").document(studentModels2.get(viewHolder.getAdapterPosition()).getStudentId());
+                                studentRef.delete();
+                                adapter.notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -141,63 +117,36 @@ public class Home extends Fragment {
                                 dialog.cancel();
                                 adapter.notifyDataSetChanged();
                             }
-                        });
-
+                        }).setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
                 AlertDialog alert = builder.create();
                 alert.show();
+
             }
         }).attachToRecyclerView(recyclerView);
-
-        adapter.setOnItemClickListener(new StudentAdapter.OnItemClickedListener() {
-            private static final String TAG = "";
-            @Override
-            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                StudentModel model = documentSnapshot.toObject(StudentModel.class);
-                String id = documentSnapshot.getId();
-                Log.d(TAG, "onItemClick: " + position);
-                HomeDirections.ActionHome2ToMain action = HomeDirections.actionHome2ToMain();
-
-                action.setStudentId(id);
-
-                action.setName(model.getName());
-                action.setPhone(model.getPhone());
-                action.setStreet(model.getStreet());
-                action.setZipCode(model.getZip_code());
-                action.setCity(model.getCity());
-                action.setCpr(model.getCpr());
-
-                action.setPrice(model.getPrice());
-                action.setDiscount(model.getDiscount());
-
-                action.setLecture1(model.getLecture1());
-                action.setLecture2(model.getLecture2());
-                action.setLecture3(model.getLecture3());
-                action.setLecture4(model.getLecture4());
-                action.setLecture5(model.getLecture5());
-                action.setLecture6(model.getLecture6());
-                action.setLecture7(model.getLecture7());
-                action.setLecture8(model.getLecture8());
-
-                action.setPractise1(model.getPractise1());
-                action.setPractise2(model.getPractise2());
-                action.setPractise3(model.getPractise3());
-                action.setPractise4(model.getPractise4());
-                action.setPractise5(model.getPractise5());
-                action.setPractise6(model.getPractise6());
-                action.setPractise7(model.getPractise7());
-                action.setPractise8(model.getPractise8());
-                action.setPractise9(model.getPractise9());
-                action.setPractise10(model.getPractise10());
-
-                action.setNote(model.getNote());
-
-                controller.navigate(action);
-            }
-        });
-
-
 
 
     }
 
+    @Override
+    public void onItemClicked(int position) {
+        HomeDirections.ActionHome2ToStudentViewPager action =
+                HomeDirections.actionHome2ToStudentViewPager();
+        action.setPosition(position);
+        controller.navigate(action);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.floating_button:
+                controller.navigate(R.id.action_home2_to_create_Student);
+                break;
+            default:
+        }
+    }
 }

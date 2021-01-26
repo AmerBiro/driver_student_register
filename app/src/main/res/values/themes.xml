@@ -72,6 +72,7 @@
 
     <style name="viewpager_info_field">
         <item name="android:textSize">20sp</item>
+        <item name="android:inputType">text</item>
         <item name="android:textColor">@color/title</item>
     </style>
 

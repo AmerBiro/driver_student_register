@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".viewpager.Info">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            >
+
+
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:hint="@string/student_name"
+                />
+
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:inputType="number"
+                android:hint="@string/student_phone"
+                />
+
+
+            <EditText
+                android:id="@+id/street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:inputType="text"
+                android:ems="15"
+                android:hint="Street, Apartment NO., etc..."
+                />
+
+            <EditText
+                android:id="@+id/zip_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:inputType="number"
+                android:ems="15"
+                android:hint="Zip code"
+                />
+
+            <EditText
+                android:id="@+id/city"
+                android:inputType="text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:hint="City"
+                />
+
+            <EditText
+                android:id="@+id/cpr"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:hint="Cpr"
+                />
+
+            <EditText
+                android:id="@+id/price"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:hint="Price: 13500 DKK"
+                />
+
+
+            <EditText
+                android:id="@+id/discount"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
+                android:hint="Discount: 0 DKK"
+                />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                >
+                <Button
+                    android:id="@+id/update_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Changes"
+                    android:textAllCaps="false"
+                    android:background="@drawable/ic_main_button"
+                    style="@style/button"
+                    tools:ignore="MissingConstraints" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar"
+                    android:visibility="invisible"
+                    android:indeterminateTint="@color/button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

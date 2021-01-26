@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="25dp"
     android:orientation="vertical"
-    tools:context=".student.Theory"
+    tools:context=".viewpager.Practise"
     android:gravity="center|top|left"
     >
 
@@ -38,17 +38,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_01"
+                    android:text="@string/practise_01"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_01_date"
+                    android:id="@+id/practise01Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="40dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -72,17 +72,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_02"
+                    android:text="@string/practise_02"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_02_date"
+                    android:id="@+id/practise02Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -106,17 +106,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_03"
+                    android:text="@string/practise_03"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_03_date"
+                    android:id="@+id/practise03Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -140,17 +140,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_04"
+                    android:text="@string/practise_04"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_04_date"
+                    android:id="@+id/practise04Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -174,17 +174,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_05"
+                    android:text="@string/practise_05"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_05_date"
+                    android:id="@+id/practise05Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -208,17 +208,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_06"
+                    android:text="@string/practise_06"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_06_date"
+                    android:id="@+id/practise06Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -242,17 +242,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_07"
+                    android:text="@string/practise_07"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_07_date"
+                    android:id="@+id/practise07Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
                     style="@style/viewpager_theory_title"
                     android:ems="6"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="49dp"
                     android:visibility="visible"
                     />
             </LinearLayout>
@@ -276,11 +276,79 @@
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theory_08"
+                    android:text="@string/practise_08"
                     style="@style/viewpager_theory_title"
                     />
                 <TextView
-                    android:id="@+id/lecture_08_date"
+                    android:id="@+id/practise08Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theory_date"
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="49dp"
+                    android:visibility="visible"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+
+                >
+                <CheckBox
+                    android:id="@+id/checkBox_09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/viewpager_theory_title"
+                    android:visibility="invisible"
+
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/practise_09"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise09Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theory_date"
+                    style="@style/viewpager_theory_title"
+                    android:ems="6"
+                    android:layout_marginLeft="77dp"
+                    android:visibility="visible"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+
+                >
+                <CheckBox
+                    android:id="@+id/checkBox_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/viewpager_theory_title"
+                    android:visibility="invisible"
+
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/practise_10"
+                    style="@style/viewpager_theory_title"
+                    />
+                <TextView
+                    android:id="@+id/practise10Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/theory_date"
