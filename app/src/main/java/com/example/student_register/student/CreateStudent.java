@@ -30,7 +30,7 @@ import java.util.Map;
 public class CreateStudent {
 
     private String name, street, city;
-    private String note;
+    private String note, email;
     private int phone, zip_code, cpr;
     private int price, discount;
     private String studentId;
@@ -47,7 +47,7 @@ public class CreateStudent {
         this.controller = Navigation.findNavController(this.view);
     }
 
-    public void create(EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount, EditText note,
+    public void create(EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount, EditText note, EditText email,
                        Button button, ProgressBar progressBar,
                        int action) {
         button.setVisibility(View.INVISIBLE);
@@ -58,6 +58,7 @@ public class CreateStudent {
         this.street = street.getText().toString();
         this.city = city.getText().toString();
         this.note = note.getText().toString();
+        this.email = email.getText().toString();
 
         student.put("name", this.name);
         student.put("street", this.street);
@@ -67,6 +68,7 @@ public class CreateStudent {
 
         student.put("date", currentTime);
         student.put("note", this.note);
+        student.put("email", this.email);
 
         if (!phone.getText().toString().trim().isEmpty()) {
             this.phone = Integer.parseInt(phone.getText().toString());

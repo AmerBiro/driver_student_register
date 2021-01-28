@@ -10,17 +10,18 @@ public class StudentModel {
     private String studentId;
     private String name, street, city;
     private Date date;
-    private String note;
+    private String note, email;
     private int phone, zip_code, cpr;
     private int price, discount;
 
-    public StudentModel(String studentId, String name, String street, String city, Date date, String note, int phone, int zip_code, int cpr, int price, int discount) {
+    public StudentModel(String studentId, String name, String street, String city, Date date, String note, String email, int phone, int zip_code, int cpr, int price, int discount) {
         this.studentId = studentId;
         this.name = name;
         this.street = street;
         this.city = city;
         this.date = date;
         this.note = note;
+        this.email = email;
         this.phone = phone;
         this.zip_code = zip_code;
         this.cpr = cpr;
@@ -78,6 +79,14 @@ public class StudentModel {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getPhone() {

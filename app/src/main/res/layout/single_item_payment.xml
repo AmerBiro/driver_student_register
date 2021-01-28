@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/single_payment"
-        style="@style/viewpager_payment_item"
-        android:layout_width="wrap_content"
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="15"
-        android:enabled="false"
-        android:textStyle="bold"
-        android:backgroundTint="@color/white"
-        android:hint="NA"
-        android:inputType="text"
-        android:textSize="20sp" />
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_marginRight="8dp"
+            android:id="@+id/select_single_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_baseline_edit_242"
+            />
+
+        <TextView
+            android:id="@+id/single_payment"
+            style="@style/viewpager_payment_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="8500 DKK"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/single_payment_date"
         style="@style/viewpager_payment_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="15"
-        android:hint="NA"
+        android:enabled="false"
+        android:text="12/04/2021"
         android:inputType="text"
         android:textSize="20sp" />
 

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.student_register.R;
 import com.example.student_register.mvvm.model.PaymentModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -53,17 +55,17 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
 
 
     public class PaymentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        EditText date;
-        TextView payment;
+        private EditText date;
+        private TextView payment;
+        private FloatingActionButton select_single_payment;
 
         public PaymentViewHolder(@NonNull View itemView) {
             super(itemView);
 
             date = itemView.findViewById(R.id.single_payment_date);
             payment = itemView.findViewById(R.id.single_payment);
-            date.setEnabled(false);
-
-            itemView.setOnClickListener(this);
+            select_single_payment = itemView.findViewById(R.id.select_single_payment);
+            select_single_payment.setOnClickListener(this);
         }
 
         @Override

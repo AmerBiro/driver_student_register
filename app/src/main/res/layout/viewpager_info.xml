@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="25dp"
     android:layout_gravity="bottom"
     android:gravity="bottom"
     tools:context=".viewpager.Info">
@@ -19,9 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="25dp"
             >
 
 
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name" />
 
             <EditText
                 android:id="@+id/name"
@@ -29,52 +35,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 style="@style/viewpager_info_field"
-                android:enabled="false"
                 android:ems="15"
-                android:hint="@string/student_name"
                 />
 
-
-            <EditText
-                android:id="@+id/phone"
+            <TextView
+                style="@style/sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/viewpager_info_field"
-                android:ems="15"
-                android:inputType="number"
-                android:hint="@string/student_phone"
-                />
-
-
-            <EditText
-                android:id="@+id/street"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/viewpager_info_field"
-                android:inputType="text"
-                android:ems="15"
-                android:hint="Street, Apartment NO., etc..."
-                />
-
-            <EditText
-                android:id="@+id/zip_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/viewpager_info_field"
-                android:inputType="number"
-                android:ems="15"
-                android:hint="Zip code"
-                />
-
-            <EditText
-                android:id="@+id/city"
-                android:inputType="text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/viewpager_info_field"
-                android:ems="15"
-                android:hint="City"
-                />
+                android:text="Cpr" />
 
             <EditText
                 android:id="@+id/cpr"
@@ -83,37 +51,84 @@
                 android:layout_height="wrap_content"
                 style="@style/viewpager_info_field"
                 android:ems="15"
-                android:hint="Cpr"
                 />
-
-            <EditText
-                android:id="@+id/price"
-                android:inputType="number"
+            <TextView
+                style="@style/sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible"
-                style="@style/viewpager_info_field"
-                android:ems="15"
-                android:hint="Price: 13500 DKK"
-                />
-
+                android:text="Phone number" />
 
             <EditText
-                android:id="@+id/discount"
-                android:visibility="invisible"
-                android:inputType="number"
+                android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/viewpager_info_field"
                 android:ems="15"
-                android:hint="Discount: 0 DKK"
+                android:inputType="number"
+                />
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email address" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:inputType="textEmailAddress"
+                android:ems="15"
+                />
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Street" />
+            <EditText
+                android:id="@+id/street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:inputType="text"
+                android:ems="15"
+                />
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zip code" />
+            <EditText
+                android:id="@+id/zip_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:inputType="number"
+                android:ems="15"
+                />
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City" />
+            <EditText
+                android:id="@+id/city"
+                android:inputType="text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/viewpager_info_field"
+                android:ems="15"
                 />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="20dp"
                 >
                 <Button
                     android:id="@+id/update_button"

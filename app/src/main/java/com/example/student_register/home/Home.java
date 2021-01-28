@@ -102,26 +102,17 @@ public class Home extends Fragment implements StudentAdapter.OnStudentItemClicke
                 builder.setMessage("Are you sure that you want to delete the student " +
                         studentModels2.get(viewHolder.getAdapterPosition()).getName() +
                         "?\n")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                DocumentReference studentRef = FirebaseFirestore.getInstance()
-                                        .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .collection("student").document(studentModels2.get(viewHolder.getAdapterPosition()).getStudentId());
-                                studentRef.delete();
-                                adapter.notifyDataSetChanged();
-                            }
+                        .setPositiveButton("Yes", (dialog, id) -> {
+                            DocumentReference studentRef = FirebaseFirestore.getInstance()
+                                    .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .collection("student").document(studentModels2.get(viewHolder.getAdapterPosition()).getStudentId());
+                            studentRef.delete();
+                            adapter.notifyDataSetChanged();
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                                adapter.notifyDataSetChanged();
-                            }
-                        }).setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        adapter.notifyDataSetChanged();
-                    }
-                });
+                        .setNegativeButton("No", (dialog, id) -> {
+                            dialog.cancel();
+                            adapter.notifyDataSetChanged();
+                        }).setOnCancelListener(dialog -> adapter.notifyDataSetChanged());
                 AlertDialog alert = builder.create();
                 alert.show();
 

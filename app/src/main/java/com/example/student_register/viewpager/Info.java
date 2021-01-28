@@ -60,6 +60,7 @@ public class Info extends Fragment implements View.OnClickListener {
             public void onChanged(List<StudentModel> studentModels) {
                 studentId = studentModels.get(getAdapterPosition).getStudentId();
                 binding.name.setText(studentModels.get(getAdapterPosition).getName());
+                binding.email.setText(studentModels.get(getAdapterPosition).getEmail());
                 if (studentModels.get(getAdapterPosition).getPhone() == 0){
                     binding.phone.setText("");
                 }else{
@@ -82,13 +83,6 @@ public class Info extends Fragment implements View.OnClickListener {
                     binding.cpr.setText(studentModels.get(getAdapterPosition).getCpr() + "");
                 }
 
-                binding.price.setText(studentModels.get(getAdapterPosition).getPrice() + "");
-
-                if (studentModels.get(getAdapterPosition).getDiscount() == 0){
-                    binding.discount.setText("");
-                }else{
-                    binding.discount.setText(studentModels.get(getAdapterPosition).getDiscount() + "");
-                }
             }
         });
     }
@@ -114,7 +108,7 @@ public class Info extends Fragment implements View.OnClickListener {
                     binding.name, binding.phone,
                     binding.street, binding.zipCode, binding.city,
                     binding.cpr,
-                    binding.price, binding.discount,
+                    binding.email,
                     binding.updateButton, binding.progressBar,
                     R.id.action_studentViewPager_to_home2
             );

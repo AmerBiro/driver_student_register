@@ -11,7 +11,7 @@
 
     // Registration
     <string name="registration_title">Registration</string>
-    <string name="registration_username">Username</string>
+    <string name="registration_username">Email address</string>
     <string name="registration_password">Password</string>
     <string name="registration_sign_in">Sign in</string>
     <string name="registration_forgot_password">Forgot password?</string>

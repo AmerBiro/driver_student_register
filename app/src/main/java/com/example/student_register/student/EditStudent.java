@@ -21,9 +21,8 @@ import java.util.HashMap;
 
 public class EditStudent {
 
-    private String name, street, city;
+    private String name, street, city, email;
     private int phone, zip_code, cpr;
-    private int price, discount;
 
     private Activity activity;
     private NavController controller;
@@ -36,7 +35,7 @@ public class EditStudent {
         this.controller = Navigation.findNavController(this.view);
     }
 
-    public void editStudent(String studentId, EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText price, EditText discount,
+    public void editStudent(String studentId, EditText name, EditText phone, EditText street, EditText zip_code, EditText city, EditText cpr, EditText email,
                        Button button, ProgressBar progressBar,
                        int action) {
         if (FirebaseAuth.getInstance().getCurrentUser() != null){
@@ -47,10 +46,12 @@ public class EditStudent {
             this.name = name.getText().toString();
             this.street = street.getText().toString();
             this.city = city.getText().toString();
+            this.email = email.getText().toString();
 
             student.put("name", this.name);
             student.put("street", this.street);
             student.put("city", this.city);
+            student.put("email", this.email);
 
             if (!phone.getText().toString().trim().isEmpty()) {
                 this.phone = Integer.parseInt(phone.getText().toString());
@@ -70,20 +71,6 @@ public class EditStudent {
                 this.cpr = 0;
             }
             student.put("cpr", this.cpr);
-
-            if (price.getText().toString().trim().isEmpty()) {
-                this.price = 13500;
-            } else {
-                this.price = Integer.parseInt(price.getText().toString());
-            }
-            student.put("price", this.price);
-
-            if (!discount.getText().toString().trim().isEmpty()) {
-                this.discount = Integer.parseInt(discount.getText().toString());
-            }else{
-                this.discount = 0;
-            }
-            student.put("discount", this.discount);
 
 
             DocumentReference studentRef = FirebaseFirestore.getInstance()
