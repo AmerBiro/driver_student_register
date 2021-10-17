@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginRight="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="3dp"
-    android:paddingRight="40dp"
-    android:paddingLeft="40dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:gravity="center"
-    app:layout_constraintTop_toTopOf="@+id/recyclerview"
     android:background="@drawable/student_item_frame"
-    android:id="@+id/button"
-    android:layout_gravity="center"
-    android:foregroundGravity="center"
+    android:padding="8dp"
     >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/single_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/student_item_name"
+            style="@style/item"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/student_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/item2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
-        android:id="@+id/single_item_name"
+        android:id="@+id/single_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/student_item_name"
         style="@style/item"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="16dp"
         />
-
-    <TextView
-        android:id="@+id/single_item_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/student_item_name"
-        style="@style/item"
-        android:textSize="17sp"
-        android:layout_marginTop="4dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        />
-
 
 </LinearLayout>

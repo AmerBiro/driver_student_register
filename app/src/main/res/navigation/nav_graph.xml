@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splash_Screen"
-        android:name="com.example.student_register.registration.SplashScreen"
+        android:name="com.example.student_register.ui.others.SplashScreen"
         android:label="home_splash__screen"
         tools:layout="@layout/registration_splash__screen" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/sign_in"
-        android:name="com.example.student_register.registration.Registration"
+        android:name="com.example.student_register.ui.auth.SignIn"
         android:label="registration_sign_in"
         tools:layout="@layout/registration_registration" >
         <action
@@ -35,18 +35,21 @@
             app:destination="@id/home2"
             app:popUpToInclusive="true"
             app:popUpTo="@+id/sign_in"
+
             />
         <action
             android:id="@+id/action_sign_in_to_createAccount"
             app:destination="@id/createAccount"
-            app:popUpToInclusive="true"
-            app:popUpTo="@+id/sign_in"
+
             />
+        <action
+            android:id="@+id/action_sign_in_to_createSchoolView"
+            app:destination="@id/createSchoolView" />
     </fragment>
 
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.student_register.home.Home"
+        android:name="com.example.student_register.ui.home.ViewAllStudents"
         android:label="home_home"
         tools:layout="@layout/home_home" >
         <action
@@ -59,39 +62,43 @@
             android:id="@+id/action_home2_to_sign_in"
             app:destination="@id/sign_in"
             app:popUpToInclusive="true"
-            app:popUpTo="@+id/home2"
+            app:popUpTo="@id/home2"
             />
+        <action
+            android:id="@+id/action_home2_to_accountViewPager"
+            app:destination="@id/accountViewPager" />
     </fragment>
 
     <fragment
         android:id="@+id/create_Student"
-        android:name="com.example.student_register.home.CreateStudentView"
+        android:name="com.example.student_register.ui.home.CreateNewStudent"
         android:label="home_create__student"
         tools:layout="@layout/home_create_student" >
         <action
             android:id="@+id/action_create_Student_to_home"
             app:destination="@id/home2"
+
             />
     </fragment>
 
 
     <fragment
         android:id="@+id/createAccount"
-        android:name="com.example.student_register.registration.CreateAccount"
+        android:name="com.example.student_register.ui.auth.SignUp"
         android:label="registration_create_account"
         tools:layout="@layout/registration_create_account" >
         <action
             android:id="@+id/action_createAccount_to_home2"
             app:destination="@id/home2"
             app:popUpToInclusive="true"
-            app:popUpTo="@+id/createAccount"
+            app:popUpTo="@id/sign_in"
             />
     </fragment>
 
 
     <fragment
         android:id="@+id/studentViewPager"
-        android:name="com.example.student_register.viewpager.StudentViewPager"
+        android:name="com.example.student_register.ui.student.view.viewpager.ViewPagerSetup"
         android:label="student_student_view_pager"
         tools:layout="@layout/viewpager_student_view_pager" >
         <action
@@ -101,6 +108,30 @@
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountViewPager"
+        android:name="com.example.student_register.ui.account.view.AccountViewPager"
+        android:label="account_account_view_pager"
+        tools:layout="@layout/account_account_view_pager" >
+        <action
+            android:id="@+id/action_accountViewPager_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_accountViewPager_to_createSchoolView"
+            app:destination="@id/createSchoolView" />
+    </fragment>
+    <fragment
+        android:id="@+id/createSchoolView"
+        android:name="com.example.student_register.ui.school.view.CreateSchoolView"
+        android:label="school_create_school_view"
+        tools:layout="@layout/school_create_school_view" >
+        <action
+            android:id="@+id/action_createSchoolView_to_accountViewPager"
+            app:destination="@id/accountViewPager" />
+        <action
+            android:id="@+id/action_createSchoolView_to_home2"
+            app:destination="@id/home2" />
     </fragment>
 
 

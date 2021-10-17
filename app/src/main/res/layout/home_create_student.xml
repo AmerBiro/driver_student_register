@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.CreateStudentView"
+    tools:context=".ui.home.CreateNewStudent"
     android:orientation="vertical"
     android:gravity="center_vertical">
 
@@ -38,7 +38,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences"
                 style="@style/viewpager_info_field"
                 android:ems="15"
                 android:hint="@string/student_name"
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/viewpager_info_field"
-                android:inputType="text"
+                android:inputType="textPostalAddress|textCapSentences"
                 android:ems="15"
                 android:hint="Street, Apartment NO., etc..."
                 />
@@ -98,7 +98,7 @@
 
             <EditText
                 android:id="@+id/city"
-                android:inputType="text"
+                android:inputType="text|textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/viewpager_info_field"
@@ -144,7 +144,7 @@
 
             <EditText
                 android:id="@+id/note"
-                android:inputType="text"
+                android:inputType="text|textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/viewpager_info_field"

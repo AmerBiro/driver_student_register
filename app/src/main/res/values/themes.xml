@@ -54,8 +54,15 @@
     </style>
 
     <style name="item">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/subtitle</item>
+        <item name="android:paddingStart">8dp</item>
+    </style>
+
+    <style name="item2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/subtitle</item>
+        <item name="android:paddingEnd">8dp</item>
     </style>
 
     <style name="viewpager_title">
@@ -101,5 +108,16 @@
     <style name="button">
         <item name="android:textColor">@color/white</item>
     </style>
+
+
+    <style name="button_create_school">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/ic_main_button</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:paddingStart">16dp</item>
+    </style>
+
+
 
 </resources>
